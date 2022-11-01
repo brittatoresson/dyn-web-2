@@ -1,6 +1,14 @@
 import { useEffect, useState } from "react";
-import { options } from "../config";
+// import { options } from "../config";
 import { IArtistObject, IHandleInput, IProps } from "../Interface/Interface";
+
+export const options = {
+  method: "GET",
+  headers: {
+    Authorization:
+      "Bearer BQCstvXR9q1W6bUeX_6OaVuDQ8dSvsKcU9E_0xyoLCo092zZhLR7NMHHqf4rinQaXUiXrzkEt1A-X92byEARzTbdonqXudNYhT-dlvG47U30ur_iulIrM7NW7BD2SKsU9Ktv47ehdTbmBQRYIlWwzvzeMwzxQW_hfoeMvXyD24ErEqEwDpPfcAvDSL8C4_rJQOo",
+  },
+};
 
 function AddNewItem(toggleInputField: IProps) {
   const [item, setItem] = useState<IArtistObject>({
@@ -15,6 +23,7 @@ function AddNewItem(toggleInputField: IProps) {
   const [searchSong, setSearchSong] = useState<any>();
   const [artist, setArtist] = useState<string>("");
   const [track, setTrack] = useState<string>("");
+  const [errorMsg, setErrorMsg] = useState<string>("");
 
   function handleInput(e: IHandleInput) {
     setItem({ ...item, [e.target.name]: e.target.value });
@@ -30,13 +39,22 @@ function AddNewItem(toggleInputField: IProps) {
     modal?.close();
   }
 
-  async function getSpotifyApi() {
+  async function getSpotifyApi(e: any) {
+    e.preventDefault();
     const response = await fetch(
       `https://api.spotify.com/v1/search?q=remaster%2520track%3A${track}%2520artist%3A${artist}&type=track&market=ES&limit=10&offset=5`,
       options
     );
-    setSearchSong(await response.json());
+    const data = await response.json();
+    if (!response.ok) {
+      setErrorMsg("please try again");
+    } else if (data.tracks.items.length < 1) {
+      setErrorMsg("please try again");
+    } else {
+      setSearchSong(data);
+    }
   }
+
   function getUriFromSpotifyApi(chosenItem: any) {
     let uri = chosenItem.uri;
     let img = chosenItem.album.images[0].url;
@@ -51,6 +69,7 @@ function AddNewItem(toggleInputField: IProps) {
   return (
     <dialog id="form">
       <h2>Add new song</h2>
+      {errorMsg ? errorMsg : null}
       <form method="POST">
         <input
           type="text"
@@ -72,7 +91,7 @@ function AddNewItem(toggleInputField: IProps) {
           }}
           required
         ></input>
-        <button type="submit" onClick={getSpotifyApi}>
+        <button type="submit" onClick={(e) => getSpotifyApi(e)}>
           Sök
         </button>
       </form>

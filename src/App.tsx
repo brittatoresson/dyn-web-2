@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.scss";
 import Header from "./Components/Header";
-import Battle from "./Pages/Battle";
+import Game from "./Pages/Game";
 import Gallery from "./Pages/Gallery";
 import LandingPage from "./Pages/LandingPage";
 
@@ -43,7 +43,7 @@ function App() {
           <Header />
           <Routes>
             <Route path="/" element={<LandingPage />}></Route>
-            <Route path="/battle" element={<Battle />}></Route>
+            <Route path="/game" element={<Game />}></Route>
             <Route path="/gallery" element={<Gallery />}></Route>
           </Routes>
         </BrowserRouter>
