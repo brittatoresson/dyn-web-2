@@ -17,28 +17,34 @@ function Gallery() {
       body: JSON.stringify({ item }),
       headers: { "Content-Type": "application/json" },
     });
+    getAllItems();
   }
 
   useEffect(() => {
     getAllItems();
-  }, []);
+  }, [toggleInputField]);
+
   return (
     <section className="gallery">
-      {allItem.map((item, i) => (
-        <ul className="galleryInfo" key={i}>
-          <ul>
-            <li onClick={() => deleteItem(item)}>DELETE</li>
-            <li>{item.name}</li>
-            <li>{item.artist}</li>
-            <img src={item.img}></img>
+      <section className="galleryPosts">
+        {allItem.map((item, i) => (
+          <ul className="galleryPost" key={i}>
+            <ul>
+              <li onClick={() => deleteItem(item)} id="deleteItem">
+                ✖️
+              </li>
+              <img src={item.img}></img>
+              <li>{item.name}</li>
+              <li>{item.artist}</li>
+            </ul>
+            <ul className="toggelGameInfo">
+              <li>Wins: {item.wins}</li>
+              <li>Losses: {item.defeats}</li>
+              <li>Total games: {item.games}</li>
+            </ul>
           </ul>
-          <ul className="toggelGameInfo">
-            <li>Wins {item.wins}</li>
-            <li>Losses{item.defeats}</li>
-            <li>Total games {item.games}</li>
-          </ul>
-        </ul>
-      ))}
+        ))}
+      </section>
       {toggleInputField ? (
         <AddNewItem setToggleInputField={setToggleInputField} />
       ) : (
