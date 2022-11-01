@@ -1,0 +1,9 @@
+////////GALLERY
+.toggelGameInfo {
+  display: none;
+}
+.galleryInfo:hover {
+  .toggelGameInfo {
+    display: block;
+  }
+}

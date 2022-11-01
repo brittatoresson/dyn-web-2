@@ -1,0 +1,29 @@
+[
+  {
+    "name": "Anti-Hero",
+    "artist": "Taylor Swift",
+    "popularity": 94,
+    "track_number": 3,
+    "uri": "spotify:track:0V3wPSX9ygBnCm8psDIegu",
+    "favFood": "ostbollar",
+    "loves": "springa i hamsterhjulet",
+    "img": "https://i.scdn.co/image/ab67616d0000b27349d694203245f241a1bcaa72",
+    "wins": 0,
+    "defeats": 0,
+    "games": 0
+  },
+
+  {
+    "name": "Unholy (feat. Kim Petras)",
+    "artist": "Sam Smith",
+    "popularity": 100,
+    "track_number": 1,
+    "uri": "spotify:track:3nqQXoyQOWXiESFLlDF1hG",
+    "favFood": "grönmögelost",
+    "loves": "springa i hamsterhjulet",
+    "img": "https://i.scdn.co/image/ab67616d0000b273a935e4689f15953311772cc4",
+    "wins": 0,
+    "defeats": 0,
+    "games": 0
+  }
+]
