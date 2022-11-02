@@ -1,27 +1,24 @@
 import { useEffect, useState } from "react";
 import { IArtistObject, IArtistArray } from "../Interface/Interface";
+import { BsShuffle } from "react-icons/bs";
 
 function Game() {
   const [players, setPlayers] = useState<IArtistArray>([]);
   const [showStatistics, setShowStatistics] = useState<boolean>();
-  // const [playerOne, setPlayerOne] = useState<IArtistObject>();
-  // const [playerTwo, setPlayerTwo] = useState<IArtistObject>();
-  const [id, setId] = useState<string | number>();
+  const [winners, setWinners] = useState<IArtistObject>();
   let loser: any;
   let winner: any;
 
   async function getRandomItems() {
-    if (players.length < 2) {
-      const response = await fetch("http://localhost:2000/top50/random");
-      const data = await response.json();
-      setId(data._id);
-      setPlayers((player) => [...player, data]);
-    }
+    const response = await fetch("http://localhost:2000/top50/random");
+    const data = await response.json();
+    setPlayers(data);
   }
 
   async function selectWinner(item: IArtistObject) {
     loser = players.find((player) => player._id !== item._id);
     winner = players.find((player) => player._id == item._id);
+    setWinners(winner);
 
     const response = await fetch("http://localhost:2000/matches", {
       method: "POST",
@@ -48,24 +45,23 @@ function Game() {
 
   useEffect(() => {
     getRandomItems();
-  }, [players]);
-
-  // window.onSpotifyWebPlaybackSDKReady = () => {
-  //   const token = '[My access token]';
-  //   const player = new Spotify.Player({
-  //     name: 'Web Playback SDK Quick Start Player',
-  //     getOAuthToken: cb => { cb(token); },
-  //     volume: 0.5
-  //   });
+  }, []);
 
   return (
     <section className="game">
       <section className="gameBoard">
         {players.map((item: IArtistObject, i) => (
-          <ul key={i} onClick={() => selectWinner(item)}>
-            <li>{item.artist}</li>
-            <li>{item.name}</li>
+          <ul
+            key={i}
+            onClick={() => selectWinner(item)}
+            className={
+              winners?._id !== item._id && showStatistics ? "togglePlayer" : ""
+            }
+          >
             <img src={item.img}></img>
+            <li>
+              {item.name} with {item.artist}
+            </li>
             {showStatistics ? (
               <>
                 {" "}
@@ -79,7 +75,9 @@ function Game() {
         ))}
       </section>
 
-      <button onClick={resetGame}>play again</button>
+      <button onClick={resetGame}>
+        <BsShuffle />
+      </button>
     </section>
   );
 }

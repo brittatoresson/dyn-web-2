@@ -1,4 +1,22 @@
 //MAIN STYLES
+@font-face {
+  font-family: mediumText;
+  src: url("./Assets/CircularFonts/ProductSans-Light.ttf");
+  font-weight: medium;
+}
+@font-face {
+  font-family: boldHeader;
+  src: url("./Assets/CircularFonts/ProductSans-Bold.ttf");
+  font-weight: bold;
+}
+
+:root {
+  --main-bg-color: rgba(81, 156, 244, 1);
+}
+body {
+  font-family: mediumText;
+  background: var(--main-bg-color);
+}
 
 li {
   list-style: none;
@@ -7,17 +25,81 @@ li {
 button {
   cursor: pointer;
 }
+
 img {
-  height: 30vh;
+  height: 40vh;
+  width: 30vw;
+  cursor: pointer;
+  border-radius: 10px;
 }
 
+a {
+  color: black;
+  text-decoration: none;
+}
+a:hover,
+button:hover {
+  opacity: 0.5;
+}
+////LANDINGPAGE
+
+.landingPage {
+  width: 40vw;
+  margin: 10vw;
+  font-family: boldHeader;
+  font-size: 36px;
+  h1:hover {
+    text-decoration: underline;
+  }
+}
+
+////HEADER
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  a {
+    padding: 1rem;
+  }
+
+  a:first-of-type {
+    position: absolute;
+    left: 1rem;
+    transform: scale(1.7);
+  }
+}
 ////////GAME
-// .game {
-// }
+.game {
+  display: grid;
+  grid-template-areas:
+    "players players players "
+    " . btn . ";
+  button {
+    grid-area: btn;
+    border: none;
+    background: var(--main-bg-color);
+    transform: scale(2);
+    margin: 1rem;
+  }
+}
 .gameBoard {
   display: flex;
   flex-direction: row;
+  place-content: center;
+  grid-area: players;
+  ul {
+    background: rgb(65, 129, 202);
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px black;
+  }
 }
+
+.togglePlayer {
+  opacity: 0.5;
+}
+
 ////////GALLERY
 
 .gallery {

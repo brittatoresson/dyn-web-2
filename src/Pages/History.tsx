@@ -31,19 +31,22 @@ function History() {
     <section className="history">
       {" "}
       History
-      {allMatches.map((item: any, i: number) => (
-        <ul key={i} className="historyPost">
-          <li onClick={() => deleteMatch(item)} id="deleteItem">
-            ✖️
-          </li>
-          <h3>Winner</h3>
-          <img src={item.winner.img}></img>
-          <li> {item.winner.name}</li>
-          <h3>Loser</h3>
-          <img src={item.loser.img}></img>
-          <li> {item.loser.name}</li>
-        </ul>
-      ))}
+      {allMatches
+        ? allMatches.map((item: any, i: number) => (
+            <ul key={i} className="historyPost">
+              <li onClick={() => deleteMatch(item)} id="deleteItem">
+                ✖️
+              </li>
+              <h3>Winner</h3>
+              <img src={item.winner.img}></img>
+              <li> {item.winner.name}</li>
+              VS
+              <h3>Loser</h3>
+              <img src={item.loser.img}></img>
+              <li> {item.loser.name}</li>
+            </ul>
+          ))
+        : null}
     </section>
   );
 }

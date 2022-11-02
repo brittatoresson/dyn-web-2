@@ -17,9 +17,9 @@ function AddNewItem(toggleInputField: IProps) {
   const [track, setTrack] = useState<string>("");
   const [errorMsg, setErrorMsg] = useState<string>("");
 
-  function handleInput(e: IHandleInput) {
-    setItem({ ...item, [e.target.name]: e.target.value });
-  }
+  // function handleInput(e: IHandleInput) {
+  //   setItem({ ...item, [e.target.name]: e.target.value });
+  // }
   async function addNewSong() {
     toggleInputField.setToggleInputField(false);
     const response = await fetch("http://localhost:2000/top50", {
@@ -48,11 +48,13 @@ function AddNewItem(toggleInputField: IProps) {
   }
 
   function getUriFromSpotifyApi(chosenItem: any) {
+    let name = chosenItem.name || "";
+    let artist = chosenItem.artists[0].name || "";
     let uri = chosenItem.uri;
     let img =
       chosenItem.album?.images[0].url ||
       "https://images.unsplash.com/photo-1494232410401-ad00d5433cfa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80";
-    setItem({ ...item, uri, img });
+    setItem({ ...item, uri, img, name, artist });
   }
 
   useEffect(() => {
@@ -70,7 +72,7 @@ function AddNewItem(toggleInputField: IProps) {
           placeholder="Artist"
           name="artist"
           onChange={(e) => {
-            handleInput(e);
+            // handleInput(e);
             setArtist(e.target.value);
           }}
           required
@@ -80,7 +82,7 @@ function AddNewItem(toggleInputField: IProps) {
           placeholder="Name of song"
           name="name"
           onChange={(e) => {
-            handleInput(e);
+            // handleInput(e);
             setTrack(e.target.value);
           }}
           required

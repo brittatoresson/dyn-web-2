@@ -1,12 +1,15 @@
 import { useNavigate } from "react-router-dom";
+import { ImHeadphones } from "react-icons/im";
 
 function LandingPage() {
   const navigate = useNavigate();
 
   return (
     <section className="landingPage">
-      <p>This or that? Click on the song you like the most!</p>
-      <button onClick={() => navigate("./game")}>Start</button>
+      <h1 onClick={() => navigate("./game")}>
+        This or that? Just click on the song you like the most. Redy to start?{" "}
+        <ImHeadphones />
+      </h1>
     </section>
   );
 }
