@@ -1,14 +1,6 @@
 import { useEffect, useState } from "react";
-// import { options } from "../config";
+import { options } from "../config";
 import { IArtistObject, IHandleInput, IProps } from "../Interface/Interface";
-
-export const options = {
-  method: "GET",
-  headers: {
-    Authorization:
-      "Bearer BQCstvXR9q1W6bUeX_6OaVuDQ8dSvsKcU9E_0xyoLCo092zZhLR7NMHHqf4rinQaXUiXrzkEt1A-X92byEARzTbdonqXudNYhT-dlvG47U30ur_iulIrM7NW7BD2SKsU9Ktv47ehdTbmBQRYIlWwzvzeMwzxQW_hfoeMvXyD24ErEqEwDpPfcAvDSL8C4_rJQOo",
-  },
-};
 
 function AddNewItem(toggleInputField: IProps) {
   const [item, setItem] = useState<IArtistObject>({
@@ -57,7 +49,9 @@ function AddNewItem(toggleInputField: IProps) {
 
   function getUriFromSpotifyApi(chosenItem: any) {
     let uri = chosenItem.uri;
-    let img = chosenItem.album.images[0].url;
+    let img =
+      chosenItem.album?.images[0].url ||
+      "https://images.unsplash.com/photo-1494232410401-ad00d5433cfa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80";
     setItem({ ...item, uri, img });
   }
 
@@ -101,7 +95,7 @@ function AddNewItem(toggleInputField: IProps) {
         {searchSong?.tracks?.items?.map((song: any, i: number) => (
           <ul
             key={i}
-            onClick={() => getUriFromSpotifyApi(i)}
+            onClick={() => getUriFromSpotifyApi(song)}
             className={song.uri === item.uri ? "chosenSong" : ""}
           >
             <li>

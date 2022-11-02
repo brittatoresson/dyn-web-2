@@ -7,6 +7,8 @@ function Header() {
       <Link to="/">Home</Link>
       <Link to="/game">Game</Link>
       <Link to="/gallery">Gallery</Link>
+      <Link to="/statistics">Statistics</Link>
+      <Link to="/history">History</Link>
     </nav>
   );
 }

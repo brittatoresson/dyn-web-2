@@ -7,6 +7,9 @@ li {
 button {
   cursor: pointer;
 }
+img {
+  height: 30vh;
+}
 
 ////////GAME
 // .game {
@@ -32,9 +35,6 @@ button {
   flex-direction: row;
   flex-wrap: wrap;
   grid-area: galleryPosts;
-  img {
-    height: 30vh;
-  }
 }
 .galleryPost {
   position: relative;
@@ -79,4 +79,23 @@ button {
   width: 40vh;
   grid-area: form;
   z-index: 2;
+}
+
+/////HISTORY
+
+.history {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.historyPost {
+  position: relative;
+  margin: 1rem;
+  border: 5px solid black;
+}
+
+/////statistics
+.statistics {
+  display: flex;
+  flex-direction: row;
 }

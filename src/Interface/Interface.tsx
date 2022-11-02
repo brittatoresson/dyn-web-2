@@ -13,6 +13,11 @@ export interface IArtistObject {
 
 export interface IArtistArray extends Array<IArtistObject> {}
 
+export interface IAllMatches {
+  _id: string;
+  winner: IArtistObject;
+  loser: IArtistObject;
+}
 export interface IHandleInput {
   target: { value: string; name: string };
 }
