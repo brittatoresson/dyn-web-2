@@ -9,6 +9,19 @@
   src: url("./Assets/CircularFonts/ProductSans-Bold.ttf");
   font-weight: bold;
 }
+@font-face {
+  font-family: regular;
+  src: url("./Assets/CircularFonts/ProductSans-Regular.ttf");
+  font-weight: bolder;
+}
+@font-face {
+  font-family: cardBold;
+  src: url("./Assets/CircularFonts/Gilroy-Bold.ttf");
+}
+@font-face {
+  font-family: cardText;
+  src: url("./Assets/CircularFonts/Gilroy-Light.ttf");
+}
 
 :root {
   --main-bg-color: rgba(81, 156, 244, 1);
@@ -16,6 +29,9 @@
 body {
   font-family: mediumText;
   background: var(--main-bg-color);
+}
+h3 {
+  font-family: regular;
 }
 
 li {
@@ -27,10 +43,10 @@ button {
 }
 
 img {
-  height: 40vh;
-  width: 30vw;
+  height: 30vh;
+  width: 20vw;
   cursor: pointer;
-  border-radius: 10px;
+  // border-radius: 10px;
 }
 
 a {
@@ -87,12 +103,21 @@ nav {
   flex-direction: row;
   place-content: center;
   grid-area: players;
+  font-family: cardBold;
+  color: white;
+
   ul {
-    background: rgb(65, 129, 202);
-    margin: 1rem;
-    padding: 1rem;
-    border-radius: 10px;
+    background-color: black;
     box-shadow: 1px 1px 10px black;
+    margin: 1rem;
+    padding: 1.5rem;
+    // border-radius: 10px;
+    li:nth-of-type(2) {
+      font-family: cardText;
+    }
+    li:last-of-type {
+      text-align: right;
+    }
   }
 }
 
@@ -137,6 +162,7 @@ nav {
 
 .toggelGameInfo {
   visibility: hidden;
+  height: 20vh;
 }
 .galleryPost:hover {
   .toggelGameInfo {
@@ -145,7 +171,7 @@ nav {
 }
 
 /// ADD NEW ITEM
-///
+
 .searchResult {
   li:hover {
     background-color: lightblue;
@@ -167,17 +193,47 @@ nav {
 
 .history {
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
 }
+
 .historyPost {
-  position: relative;
+  display: grid;
+  grid-template-areas:
+    "winner vs loser"
+    "winnerText . loserText";
+  box-shadow: 1px 1px 10px black;
   margin: 1rem;
-  border: 5px solid black;
+  padding: 1rem;
+}
+.historyWinner {
+  grid-area: winner;
+  li {
+    grid-area: winnerText;
+  }
+}
+.historyLoser {
+  position: relative;
+  grid-area: loser;
+  li {
+    grid-area: loserText;
+  }
+}
+.VS {
+  grid-area: vs;
+  width: 2rem;
+  text-align: center;
+  margin-top: 10rem;
 }
 
 /////statistics
 .statistics {
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  article {
+    margin: 5rem;
+    ul {
+      padding: 0;
+    }
+  }
 }

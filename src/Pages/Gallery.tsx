@@ -46,12 +46,10 @@ function Gallery() {
               <li>Wins: {item.wins}</li>
               <li>Losses: {item.defeats}</li>
               <li>Total games: {item.games}</li>
+              Defeats :
               {defeats.length > 0
                 ? defeats?.map((defeat: IArtistObject, i: number) => (
-                    <li key={i}>
-                      {" "}
-                      Defeats {defeat.name} with {defeat.artist}{" "}
-                    </li>
+                    <li key={i}>{defeat.artist} </li>
                   ))
                 : "No defeats"}
             </ul>

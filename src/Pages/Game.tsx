@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { IArtistObject, IArtistArray } from "../Interface/Interface";
-import { BsShuffle } from "react-icons/bs";
+import { BsShuffle, BsHeart } from "react-icons/bs";
+import Spotify from "../Components/Spotify";
 
 function Game() {
   const [players, setPlayers] = useState<IArtistArray>([]);
@@ -59,8 +60,11 @@ function Game() {
             }
           >
             <img src={item.img}></img>
+            <li>{item.name}</li>
+            <li>{item.artist}</li>
             <li>
-              {item.name} with {item.artist}
+              {" "}
+              <BsHeart />
             </li>
             {showStatistics ? (
               <>
@@ -68,9 +72,10 @@ function Game() {
                 <li>Total games: {item.games}</li>
                 <li>Wins: {item.wins}</li>
                 <li>Losses: {item.defeats}</li>
-                <li>Listen {item.uri}</li>{" "}
+                <li>Listen {item.uri}</li>
               </>
             ) : null}
+            {winners?._id === item._id ? <Spotify item={winners} /> : null}
           </ul>
         ))}
       </section>

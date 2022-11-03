@@ -22,9 +22,6 @@ export interface IHandleInput {
   target: { value: string; name: string };
 }
 
-// export interface Start {
-//   state: StateStart;
-// }
 export interface IProps {
   // start: boolean;
   setToggleInputField: (active: boolean) => void;
