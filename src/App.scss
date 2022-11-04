@@ -143,9 +143,6 @@ nav {
 ////////GALLERY
 
 .gallery {
-  ul {
-    // padding: 0;
-  }
 }
 .galleryHeaders {
   display: grid;
@@ -157,9 +154,11 @@ nav {
 }
 .galleryPost {
   display: grid;
+  grid-template-columns: repeat(12, 1fr);
+
   grid-template-areas:
-    "  delete img artist album navdot info  . "
-    "  delete img title album navdot info   . ";
+    " delete img img title title title album album navdot infoContainer  infoContainer infoContainer"
+    " delete img img artist artist artist album album navdot infoContainer infoContainer infoContainer";
   background-color: black;
   img {
     grid-area: img;
@@ -170,19 +169,15 @@ nav {
 
 .name {
   grid-area: name;
-  width: 15vw;
 }
 .albums {
   grid-area: albums;
-  width: 15vw;
 }
 .title {
   grid-area: title;
-  width: 15vw;
 }
 .artist {
   grid-area: artist;
-  width: 15vw;
 }
 .album {
   grid-area: album;
@@ -193,39 +188,67 @@ nav {
     transform: scale(2);
   }
 }
-
-.defeats {
+// .defeats {
+//   grid-area: defeats;
+//   height: 5rem;
+//   overflow: scroll;
+//   width: 1rem;
+//   li {
+//     width: 1rem;
+//   }
+// }
+.gameInfoContainer {
+  grid-area: infoContainer;
   display: flex;
   flex-direction: row;
 }
 
-#deleteItem {
-  // grid-area: delete;
-  // width: 1.5em;
-  // height: 1.5em;
-  // padding: 0.25em;
-  // background-color: #fff;
-  // opacity: 0.7;
+.delete {
   cursor: pointer;
+  grid-area: delete;
 }
 
 .toggelGameInfo {
   visibility: hidden;
-  width: 10vw;
   padding: 0;
 }
-.gameInfo {
-  grid-area: info;
-  width: auto;
-}
+// .gameInfo {
+//   grid-area: info;
+//   li {
+//     margin: 0;
+//     width: 1rem;
+//   }
+// }
 .galleryPost:hover {
   .toggelGameInfo {
     visibility: visible;
   }
 }
-
+.gallery button {
+  border: none;
+  background: var(--main-bg-color);
+  transform: scale(1.2);
+  margin: 1.5rem;
+}
 /// ADD NEW ITEM
 
+#form {
+  height: 40vh;
+  width: 40vh;
+  grid-area: form;
+  z-index: 2;
+  background-color: var(--main-bg-color);
+  p {
+    text-align: right;
+    cursor: pointer;
+  }
+  overflow: scroll;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .searchResult {
   li:hover {
     background-color: lightblue;
@@ -236,11 +259,12 @@ nav {
   background-color: red;
 }
 
-#form {
-  height: 40vh;
-  width: 40vh;
-  grid-area: form;
-  z-index: 2;
+input {
+  border-radius: 20px;
+  border: 1px solid black;
+  width: 20vw;
+  height: 2rem;
+  outline: none;
 }
 
 /////HISTORY

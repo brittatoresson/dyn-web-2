@@ -1,7 +1,7 @@
 //DENNA NYCKEL BEHÖVER UPPDATERAS FÖR ATT FUNGERA, HÄMTA HÄR https://developer.spotify.com/console/get-search-item/
 
 export const token =
-  "BQADgUd8EcmjM87SJrU2-e9dZO_p-HvZGbUSgpG6zn2BV1ii41VdOY9Ebow9ePcWinUq4zTS83F6LjoLIgJ2cVzJI-jlxeAtF6BrI1UZpkENoErogN0SIZzLR9vB736wEseg-NTr2ZpXUc92vJIgOpUlLUgivSdMIIfDBwlETeUybQwcQk4oekoGhlRpg3RhMctAlcbh";
+  "BQC2cgw803WfEiez5olQE-eX_ByIKZQDTIbHOqJNfZnDPSPbH-v9ZXlOKX3NbN_xAVGHvM6h9O3hTICMYgGQbj0bE7Nxqeehzop2MSvNwE5cDQ0CxyAOFm0mP_ShTwZzqBW0bIXU-MH7YCteDMXMid3JaEcmXeuH9y9UpUZAuSrho_E3wQAEfBMlyYrORQTa5Fn2xhbJ";
 
 export const options = {
   method: "GET",
