@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { options } from "../config";
 import { IArtistObject, IHandleInput, IProps } from "../Interface/Interface";
+const _ = require("lodash");
 
 function AddNewItem(toggleInputField: IProps) {
   const [item, setItem] = useState<IArtistObject>({
@@ -47,8 +48,6 @@ function AddNewItem(toggleInputField: IProps) {
   }
 
   function getUriFromSpotifyApi(chosenItem: any) {
-    console.log(chosenItem);
-
     let name = chosenItem.name || "";
     let artist = chosenItem.artists[0].name || "";
     let album = chosenItem.album.name;

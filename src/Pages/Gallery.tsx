@@ -45,10 +45,10 @@ function Gallery() {
             Add new song
           </button>
         )}{" "}
-        <section className="galleryHeaders">
-          <p className="name">name</p>
-          <p className="albums">album</p>
-        </section>
+        <ul className="galleryHeaders">
+          <p className="name">Track</p>
+          <p className="albums">Album</p>
+        </ul>
         {allItem.map((item, i) => (
           <ul className="galleryPost" key={i}>
             <li onClick={() => deleteItem(item)} className="delete">

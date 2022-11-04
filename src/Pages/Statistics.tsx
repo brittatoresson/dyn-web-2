@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { IArtistArray } from "../Interface/Interface";
+import NrGames from "../Components/NrGames";
 
 function Statistics() {
   const [top5, setTop5] = useState<IArtistArray>([]);
@@ -39,6 +40,7 @@ function Statistics() {
           </ul>
         ))}
       </article>
+      <NrGames />
     </section>
   );
 }

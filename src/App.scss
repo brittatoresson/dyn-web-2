@@ -140,13 +140,31 @@ nav {
   opacity: 0.5;
 }
 
+.spotifyPlayer {
+  .PlayerRSWP {
+    height: 1rem;
+    width: 20vw;
+  }
+  background-color: black;
+  .rswp__toggle,
+  ._ContentRSWP,
+  .ControlRSWP,
+  ._ActionsRSWP {
+    transform: scale(0.7);
+  }
+  a {
+    color: white;
+  }
+}
+
 ////////GALLERY
 
 .gallery {
 }
 .galleryHeaders {
   display: grid;
-  grid-template-areas: " . name albums . . . ";
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-areas: " .  . . name name name  albums albums  . . . . ";
 }
 .galleryPosts {
   background-color: rgb(24, 3, 3);
@@ -181,8 +199,12 @@ nav {
 }
 .album {
   grid-area: album;
+  display: flex;
+  align-items: center;
 }
 .navdot {
+  display: flex;
+  align-items: center;
   svg {
     grid-area: navdot;
     transform: scale(2);
@@ -272,16 +294,28 @@ input {
 .history {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .historyPost {
+  background-color: rgb(18, 18, 18);
+  color: white;
   display: grid;
   grid-template-areas:
-    "winner vs loser"
-    "winnerText . loserText";
-  box-shadow: 1px 1px 10px black;
+    "winner vs loser delete"
+    "winnerText . loserText .";
   margin: 1rem;
   padding: 1rem;
+  #delete {
+    grid-area: delete;
+  }
+  img {
+    height: 15vh;
+    width: 15vh;
+    border-radius: 100px;
+  }
+  text-align: center;
+  width: 25vw;
 }
 .historyWinner {
   grid-area: winner;
@@ -314,4 +348,9 @@ input {
       padding: 0;
     }
   }
+}
+
+.nrGames {
+  display: flex;
+  flex-direction: column;
 }

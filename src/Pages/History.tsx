@@ -38,10 +38,10 @@ function History() {
                 <li> {item.winner.name}</li>
               </article>
               <p className="VS">VS</p>
+              <li onClick={() => deleteMatch(item)} id="delete">
+                ✖️
+              </li>
               <article className="historyLoser">
-                <li onClick={() => deleteMatch(item)} id="deleteItem">
-                  ✖️
-                </li>
                 <h3>Loser</h3>
                 <img src={item.loser.img}></img>
                 <li> {item.loser.name}</li>

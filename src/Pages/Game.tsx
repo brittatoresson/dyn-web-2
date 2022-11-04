@@ -74,10 +74,9 @@ function Game() {
                 <li>Total games: {item.games}</li>
                 <li>Wins: {item.wins}</li>
                 <li>Losses: {item.defeats}</li>
-                <li>Listen {item.uri}</li>
               </>
             ) : null}
-            {/* {winners?._id === item._id ? <Spotify item={winners} /> : null} */}
+            {winners?._id === item._id ? <Spotify item={winners} /> : null}
           </ul>
         ))}
       </section>
