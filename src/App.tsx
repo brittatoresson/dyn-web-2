@@ -8,36 +8,7 @@ import LandingPage from "./Pages/LandingPage";
 import Statistics from "./Pages/Statistics";
 import History from "./Pages/History";
 
-export const options = {
-  method: "GET",
-  headers: {
-    Authorization:
-      "Bearer BQA2b5eFDB-GOAJAkusTche4Wh5oHN2huz20eV8u-oYqWiWMQWeMwTS4M6t9uSok9E_DiVC6KQITxJkKRbgmoj-7m4GVtbVHuwDbht4etycad5XC8q56AQkrbyCGUfTWJkmsWWpbUBdTO_7UNAGtz4pH65ePJku5j9iWyvKVz0ejVJNgFNJkf1GToDVOkq9yT4k",
-  },
-};
-
-let show =
-  "https://api.spotify.com/v1/shows?market=ES&ids=5CfCWKI5pZ28U0uOzXkDHe%2C5as3aKmN2k11yfDDDSrvaZ";
-let playlist = "https://api.spotify.com/v1/playlists/37i9dQZEVXbMDoHDwVN2tF";
-
 function App() {
-  // const [test, setTest] = useState<any>();
-
-  // useEffect(() => {
-  //   fetch(playlist, options)
-  //     .then((response) => response.json())
-  //     .then((data) => setTest(data.tracks))
-  //     .catch((err) => console.error(err));
-  // }, []);
-
-  // useEffect(() => {
-  //   if (test) {
-  //     test.items.map((i: any) => {
-  //       console.log(i.track);
-  //     });
-  //   }
-  // }, [test]);
-
   return (
     <main>
       <div className="App">
@@ -57,5 +28,3 @@ function App() {
 }
 
 export default App;
-
-//// julkalendrar, poddar, P3 personligheter, musik

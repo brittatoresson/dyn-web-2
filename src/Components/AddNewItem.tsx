@@ -10,7 +10,7 @@ function AddNewItem(toggleInputField: IProps) {
     name: "",
     artist: "",
     uri: "",
-    active: false,
+    album: "",
   });
   const [searchSong, setSearchSong] = useState<any>();
   const [artist, setArtist] = useState<string>("");

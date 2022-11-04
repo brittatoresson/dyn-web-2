@@ -8,7 +8,7 @@ export interface IArtistObject {
   wins: number | string;
   defeats?: string;
   games?: number | string;
-  active: boolean;
+  album: string;
 }
 
 export interface IArtistArray extends Array<IArtistObject> {}

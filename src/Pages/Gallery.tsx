@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import AddNewItem from "../Components/AddNewItem";
 import { IArtistObject, IArtistArray } from "../Interface/Interface";
+import { BiDotsVerticalRounded } from "react-icons/bi";
 
 function Gallery() {
   const [allItem, setAllItem] = useState<IArtistArray>([]);
@@ -32,24 +33,36 @@ function Gallery() {
   return (
     <section className="gallery">
       <section className="galleryPosts">
+        <section className="galleryHeaders">
+          <p className="name">name</p>
+          <p className="albums">album</p>
+        </section>
         {allItem.map((item, i) => (
-          <ul className="galleryPost" key={i}>
-            <ul onMouseOver={() => getDefeats(item._id)}>
-              <li onClick={() => deleteItem(item)} id="deleteItem">
-                ✖️
-              </li>
-              <img src={item.img}></img>
-              <li>{item.name}</li>
-              <li>{item.artist}</li>
-            </ul>
-            <ul className="toggelGameInfo">
+          <ul
+            className="galleryPost"
+            key={i}
+            // onMouseOver={() => getDefeats(item._id)}
+          >
+            <li onClick={() => deleteItem(item)} id="deleteItem">
+              ✖️
+            </li>
+            <img src={item.img}></img>
+            <li className="title">{item.name}</li>
+            <li className="artist">{item.artist}</li>
+            <li className="album">{item.album}</li>
+            <li className="navdot" onMouseOver={() => getDefeats(item._id)}>
+              <BiDotsVerticalRounded />
+            </li>
+            <ul className="gameInfo toggelGameInfo">
               <li>Wins: {item.wins}</li>
               <li>Losses: {item.defeats}</li>
               <li>Total games: {item.games}</li>
-              Defeats :
+            </ul>
+            <ul key={i} className="defeats toggelGameInfo">
+              Defeats:
               {defeats.length > 0
                 ? defeats?.map((defeat: IArtistObject, i: number) => (
-                    <li key={i}>{defeat.artist} </li>
+                    <li>{defeat.artist}</li>
                   ))
                 : "No defeats"}
             </ul>

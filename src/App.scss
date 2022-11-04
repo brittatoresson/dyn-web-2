@@ -111,13 +111,28 @@ nav {
     box-shadow: 1px 1px 10px black;
     margin: 1rem;
     padding: 1.5rem;
-    // border-radius: 10px;
     li:nth-of-type(2) {
       font-family: cardText;
     }
-    li:last-of-type {
+    li:nth-of-type(3) {
       text-align: right;
+      cursor: pointer;
     }
+  }
+}
+.blinkHeart {
+  animation: blink 1.5s ease-in 2;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 1;
   }
 }
 
@@ -128,41 +143,80 @@ nav {
 ////////GALLERY
 
 .gallery {
-  display: grid;
-  grid-template-areas:
-    "galleryPosts galleryPosts galleryPosts"
-    ". form ."
-    ". gallery-btn .";
-  button {
-    grid-area: gallery-btn;
+  ul {
+    // padding: 0;
   }
 }
+.galleryHeaders {
+  display: grid;
+  grid-template-areas: " . name albums . . . ";
+}
 .galleryPosts {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  grid-area: galleryPosts;
+  background-color: rgb(24, 3, 3);
+  color: white;
 }
 .galleryPost {
-  position: relative;
-  margin: 1rem;
+  display: grid;
+  grid-template-areas:
+    "  delete img artist album navdot info  . "
+    "  delete img title album navdot info   . ";
+  background-color: black;
+  img {
+    grid-area: img;
+    width: 5rem;
+    height: 5rem;
+  }
+}
+
+.name {
+  grid-area: name;
+  width: 15vw;
+}
+.albums {
+  grid-area: albums;
+  width: 15vw;
+}
+.title {
+  grid-area: title;
+  width: 15vw;
+}
+.artist {
+  grid-area: artist;
+  width: 15vw;
+}
+.album {
+  grid-area: album;
+}
+.navdot {
+  svg {
+    grid-area: navdot;
+    transform: scale(2);
+  }
+}
+
+.defeats {
+  display: flex;
+  flex-direction: row;
 }
 
 #deleteItem {
-  position: absolute;
-  top: 4px;
-  right: 4px;
-  width: 1.5em;
-  height: 1.5em;
-  padding: 0.25em;
-  background-color: #fff;
-  opacity: 0.7;
+  // grid-area: delete;
+  // width: 1.5em;
+  // height: 1.5em;
+  // padding: 0.25em;
+  // background-color: #fff;
+  // opacity: 0.7;
   cursor: pointer;
 }
 
 .toggelGameInfo {
   visibility: hidden;
-  height: 20vh;
+  width: 10vw;
+  padding: 0;
+}
+.gameInfo {
+  grid-area: info;
+  width: auto;
 }
 .galleryPost:hover {
   .toggelGameInfo {

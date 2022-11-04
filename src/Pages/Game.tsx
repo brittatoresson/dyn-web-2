@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { IArtistObject, IArtistArray } from "../Interface/Interface";
-import { BsShuffle, BsHeart } from "react-icons/bs";
+import { BsShuffle, BsHeart, BsHeartFill } from "react-icons/bs";
 import Spotify from "../Components/Spotify";
 
 function Game() {
@@ -54,7 +54,6 @@ function Game() {
         {players.map((item: IArtistObject, i) => (
           <ul
             key={i}
-            onClick={() => selectWinner(item)}
             className={
               winners?._id !== item._id && showStatistics ? "togglePlayer" : ""
             }
@@ -62,9 +61,12 @@ function Game() {
             <img src={item.img}></img>
             <li>{item.name}</li>
             <li>{item.artist}</li>
-            <li>
-              {" "}
-              <BsHeart />
+            <li className="blinkHeart" onClick={() => selectWinner(item)}>
+              {winners?._id == item._id && showStatistics ? (
+                <BsHeartFill />
+              ) : (
+                <BsHeart />
+              )}
             </li>
             {showStatistics ? (
               <>
@@ -75,7 +77,7 @@ function Game() {
                 <li>Listen {item.uri}</li>
               </>
             ) : null}
-            {winners?._id === item._id ? <Spotify item={winners} /> : null}
+            {/* {winners?._id === item._id ? <Spotify item={winners} /> : null} */}
           </ul>
         ))}
       </section>
