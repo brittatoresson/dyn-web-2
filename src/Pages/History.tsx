@@ -1,13 +1,8 @@
 import { useEffect, useState } from "react";
-import {
-  IAllMatches,
-  IArtistArray,
-  IArtistObject,
-} from "../Interface/Interface";
+import { IArtistObject } from "../Interface/Interface";
 
 function History() {
   const [allMatches, setAllMatches] = useState<any>([]);
-  const [deleteItem, setDeleteItem] = useState<IArtistObject>();
 
   async function getAllMatches() {
     const response = await fetch("http://localhost:2000/matches");
@@ -19,7 +14,6 @@ function History() {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
     });
-    console.log(await response.json());
     getAllMatches();
   }
 

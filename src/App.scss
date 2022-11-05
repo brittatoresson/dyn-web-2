@@ -69,6 +69,7 @@ button:hover {
   font-size: 36px;
   h1:hover {
     text-decoration: underline;
+    cursor: pointer;
   }
 }
 
@@ -162,21 +163,18 @@ nav {
 
 ////////GALLERY
 
-.gallery {
-}
 .galleryHeaders {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-areas: " .  . . name name name  albums albums  . . . . ";
 }
 .galleryPosts {
-  background-color: rgb(24, 3, 3);
+  background-color: var(--dark-bg-color);
   color: white;
 }
 .galleryPost {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-
   grid-template-areas:
     " delete img img title title title album album navdot infoContainer  infoContainer infoContainer"
     " delete img img artist artist artist album album navdot infoContainer infoContainer infoContainer";
@@ -195,10 +193,14 @@ nav {
   grid-area: albums;
 }
 .title {
+  padding: 0.5rem;
   grid-area: title;
+  font-family: regular;
+  font-size: 18px;
 }
 .artist {
   grid-area: artist;
+  padding: 0.5rem;
 }
 .album {
   grid-area: album;
@@ -211,21 +213,15 @@ nav {
   svg {
     grid-area: navdot;
     transform: scale(2);
+    cursor: pointer;
   }
 }
-// .defeats {
-//   grid-area: defeats;
-//   height: 5rem;
-//   overflow: scroll;
-//   width: 1rem;
-//   li {
-//     width: 1rem;
-//   }
-// }
 .gameInfoContainer {
   grid-area: infoContainer;
   display: flex;
   flex-direction: row;
+  overflow: scroll;
+  height: 9vh;
 }
 
 .delete {
@@ -237,13 +233,7 @@ nav {
   visibility: hidden;
   padding: 0;
 }
-// .gameInfo {
-//   grid-area: info;
-//   li {
-//     margin: 0;
-//     width: 1rem;
-//   }
-// }
+
 .galleryPost:hover {
   .toggelGameInfo {
     visibility: visible;

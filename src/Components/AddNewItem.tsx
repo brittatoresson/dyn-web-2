@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { options } from "../config";
+import { options } from "../Assets/config";
 import { IArtistObject, IHandleInput, IProps } from "../Interface/Interface";
 const _ = require("lodash");
 

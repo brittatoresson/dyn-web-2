@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import AddNewItem from "../Components/AddNewItem";
 import { IArtistObject, IArtistArray } from "../Interface/Interface";
 import { BiDotsVerticalRounded } from "react-icons/bi";
-import { IoIosStats } from "react-icons/io";
+import { IoIosStats, IoMdClose } from "react-icons/io";
 
 function Gallery() {
   const [allItem, setAllItem] = useState<IArtistArray>([]);
@@ -23,8 +23,6 @@ function Gallery() {
   }
 
   async function getDefeats(item: any) {
-    console.log(item);
-
     const response = await fetch(`http://localhost:2000/matchWinners/${item}`);
     setDefeats(await response.json());
     setId(item);
@@ -58,7 +56,7 @@ function Gallery() {
               ✖️
             </li>
             <img src={item.img}></img>
-            <h3 className="title">{item.name}</h3>
+            <li className="title">{item.name}</li>
             <li className="artist">{item.artist}</li>
             <li className="album">{item.album}</li>
             <li className="navdot" onClick={() => getDefeats(item._id)}>
@@ -72,9 +70,10 @@ function Gallery() {
                   <li>Total games: {item.games}</li>
                 </ul>
                 <ul key={i} className="defeats">
+                  <li>Defeats:</li>
                   {defeats.length > 0
                     ? defeats?.map((defeat: IArtistObject, i: number) => (
-                        <li className=""> {defeat.artist}</li>
+                        <li> {defeat.artist}</li>
                       ))
                     : ""}
                 </ul>
