@@ -17,5 +17,4 @@ dbo.getDb();
 
 app.listen(PORT, function () {
   console.log("Server is running on Port: " + PORT);
-  res.json("hej");
 });
