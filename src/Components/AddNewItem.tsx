@@ -19,7 +19,6 @@ function AddNewItem(toggleInputField: IProps) {
   const [errorMsg, setErrorMsg] = useState<string>("");
 
   async function addNewSong() {
-    toggleInputField.setToggleInputField(false);
     const response = await fetch("http://localhost:2000/top50", {
       method: "POST",
       body: JSON.stringify({ item }),
@@ -27,6 +26,7 @@ function AddNewItem(toggleInputField: IProps) {
     });
     const modal = document.getElementById("form") as HTMLDialogElement;
     modal?.close();
+    toggleInputField.setToggleInputField(false);
   }
 
   async function getSpotifyApi(e: any) {

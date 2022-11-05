@@ -36,7 +36,10 @@ function Gallery() {
 
   return (
     <section className="gallery">
-      <section className="galleryPosts">
+      <section
+        className="galleryPosts"
+        id={toggleInputField == true ? "toggleOpacity" : "hej"}
+      >
         {toggleInputField ? (
           <AddNewItem setToggleInputField={setToggleInputField} />
         ) : (

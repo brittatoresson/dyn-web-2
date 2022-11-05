@@ -24,6 +24,9 @@
 }
 
 :root {
+  --dark-bg-color: rgba(29, 29, 29);
+  --active-bg-color: rgb(113, 113, 113);
+  --hover-bg-color: rgba(90, 90, 90);
   --main-bg-color: rgba(81, 156, 244, 1);
 }
 body {
@@ -252,14 +255,21 @@ nav {
   transform: scale(1.2);
   margin: 1.5rem;
 }
-/// ADD NEW ITEM
+
+#toggleOpacity {
+  opacity: 0.5;
+}
+
+//// ADD NEW SONG
 
 #form {
   height: 40vh;
   width: 40vh;
   grid-area: form;
   z-index: 2;
-  background-color: var(--main-bg-color);
+  background-color: var(--dark-bg-color);
+  color: white;
+  border: 5px solid white;
   p {
     text-align: right;
     cursor: pointer;
@@ -273,12 +283,13 @@ form {
 }
 .searchResult {
   li:hover {
-    background-color: lightblue;
+    background: var(--hover-bg-color);
   }
 }
 .chosenSong {
   font-weight: bolder;
-  background-color: red;
+  padding: 0.5rem;
+  background: var(--active-bg-color);
 }
 
 input {

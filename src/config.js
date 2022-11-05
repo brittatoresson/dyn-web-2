@@ -2,7 +2,7 @@
 //https://developer.spotify.com/documentation/web-playback-sdk/quick-start/#
 
 export const token =
-  "BQBYXV1Dzry3A7ryFvVOjjRX8qT7_7IlvPa8U0RMXEQvdu-dgIowh5HAkFaHZC-6KBz9JO0b1pkz_Ie9hG0oS7o-3FxhcxcGAogH2aSeJAKY25vgBgVc8jyA9HpLX_JfjppqIEmH93re6X5sZD0gqy_9Zc6xPHbIG6-rPngSE_lyILuHqurW6X6nK5aXJ4UgTzllspceZI0kor5ukdQ8qgqVG_qobYWLWKw";
+  "BQBwJz5n-mm2jMkHvcAH3X4qqPmh6urZsQ43sVbxKLkKkcRnWArrCpTTf2Bnk8g7A88kyQYMLde1wFSrodYNLXHFOUd5QtztxnXNEo_-D8Lfomkv1VOR6YM78K3-87V7WrBtfY0sPXU_7GN615hD8EjIs_jIN_RLjbxJUBk0nxBWvAsvXdeHoZWYS7eFyZTSvnN-5OaV";
 
 export const options = {
   method: "GET",
