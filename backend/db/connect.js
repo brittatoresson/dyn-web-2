@@ -1,7 +1,7 @@
 const { MongoClient } = require("mongodb");
-let he = "mongodb+srv://cluster0.jy6hhtd.mongodb.net/myFirstDatabase";
+// let he = "mongodb+srv://cluster0.jy6hhtd.mongodb.net/myFirstDatabase";
 let hej = "mongodb+srv://Britta:britta@cluster0.jy6hhtd.mongodb.net/test";
-const db = he;
+const db = hej;
 // const db = process.env.ATLAS_URI;
 const client = new MongoClient(db, {
   useNewUrlParser: true,
@@ -17,8 +17,10 @@ module.exports = {
       if (db) {
         _db = db.db("hamsterWarsDb");
         console.log("Gick bra");
+        return _db;
       } else {
-        return callback(err);
+        console.log("ingen connection");
+        // return callback(err);
       }
     });
   },
