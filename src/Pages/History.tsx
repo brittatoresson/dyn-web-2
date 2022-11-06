@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import { IArtistObject } from "../Interface/Interface";
+import { IArtistArray, IArtistObject } from "../Interface/Interface";
 
 function History() {
-  const [allMatches, setAllMatches] = useState<any>([]);
+  const [allMatches, setAllMatches] = useState<IArtistArray>([]);
 
   async function getAllMatches() {
     const response = await fetch("http://localhost:2000/matches");
@@ -23,7 +23,7 @@ function History() {
 
   return (
     <section className="history">
-      {allMatches
+      {allMatches.length > 0
         ? allMatches.map((item: any, i: number) => (
             <ul key={i} className="historyPost">
               <article className="historyWinner">
@@ -42,7 +42,7 @@ function History() {
               </article>
             </ul>
           ))
-        : null}
+        : " No games played yet"}
     </section>
   );
 }

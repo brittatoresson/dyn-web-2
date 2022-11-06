@@ -6,8 +6,8 @@ export interface IArtistObject {
   img?: string;
   uri: string;
   wins: number | string;
-  defeats?: string;
-  games?: number | string;
+  defeats: number | string;
+  games: number | string;
   album: string;
 }
 
