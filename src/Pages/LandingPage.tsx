@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { ImHeadphones } from "react-icons/im";
 import { useEffect, useState } from "react";
+import errorHandling from "../Components/ErrorHandling";
 
 function LandingPage() {
   const navigate = useNavigate();
@@ -12,16 +13,13 @@ function LandingPage() {
         if (response.status == 200) {
           return response.json();
         } else {
-          setErrMsg(response.statusText.toLowerCase());
-          throw Error(response.statusText);
+          setErrMsg(errorHandling(response.status));
+          throw Error(response.status.toString());
         }
       })
-      .then((data) => {
-        // console.log(data);
-      })
       .catch((error) => {
-        // console.log(error);
-        // setErrMsg(error);
+        setErrMsg(errorHandling(error));
+        return error;
       });
   }
 
@@ -32,7 +30,7 @@ function LandingPage() {
   return (
     <section className="landingPage">
       {errMsg ? (
-        `Oops something went wrong, please try again`
+        errMsg
       ) : (
         <h1 onClick={() => navigate("./game")}>
           This or that? Just click on the song you like the most. Redy to start?{" "}
