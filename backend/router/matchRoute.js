@@ -40,9 +40,9 @@ routes.route("/matchWinners/:id").get(function (req, res) {
           defeats.push(i.loser);
         }
       });
-
-      if (defeats.length > 1) {
+      if (defeats.length >= 1) {
         res.json(defeats);
+        return;
       } else {
         res.json({ status: "no defeats" });
       }

@@ -36,7 +36,7 @@ function Gallery() {
     <section className="gallery">
       <section
         className="galleryPosts"
-        id={toggleInputField == true ? "toggleOpacity" : "hej"}
+        id={toggleInputField == true ? "toggleOpacity" : ""}
       >
         {toggleInputField ? (
           <AddNewItem setToggleInputField={setToggleInputField} />
@@ -73,7 +73,7 @@ function Gallery() {
                   <li>Defeats:</li>
                   {defeats.length > 0
                     ? defeats?.map((defeat: IArtistObject, i: number) => (
-                        <li> {defeat.artist}</li>
+                        <li key={i}> {defeat.artist}</li>
                       ))
                     : ""}
                 </ul>
