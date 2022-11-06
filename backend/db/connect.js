@@ -1,7 +1,7 @@
 const { MongoClient } = require("mongodb");
 let he = "mongodb+srv://cluster0.jy6hhtd.mongodb.net/myFirstDatabase";
 let hej = "mongodb+srv://Britta:britta@cluster0.jy6hhtd.mongodb.net/test";
-const db = hej;
+const db = he;
 // const db = process.env.ATLAS_URI;
 const client = new MongoClient(db, {
   useNewUrlParser: true,
