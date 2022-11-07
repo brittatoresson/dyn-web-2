@@ -12,9 +12,6 @@ app.use(express.json());
 app.use(mainRoute);
 app.use(matchesRoute);
 
-dbo.connectToServer();
-dbo.getDb();
-
 app.listen(PORT, function () {
   dbo.connectToServer(function (err) {
     if (err) {
