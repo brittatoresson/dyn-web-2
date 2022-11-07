@@ -313,13 +313,12 @@ input {
     "winnerText . loserText .";
   margin: 1rem;
   padding: 1rem;
-  // width: 35vw;
   #delete {
     grid-area: delete;
   }
   img {
-    height: 15vh;
-    width: 15vh;
+    height: 10vw;
+    width: 10vw;
     border-radius: 100px;
   }
   text-align: center;
@@ -370,13 +369,4 @@ input {
 .nrGames {
   display: flex;
   flex-direction: column;
-}
-
-@media screen and (max-width: 800px) {
-  .historyPost {
-    img {
-      width: 12vh;
-      height: 12vh;
-    }
-  }
 }
