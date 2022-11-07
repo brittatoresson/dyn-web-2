@@ -5,7 +5,8 @@ const ObjectId = require("mongodb").ObjectId;
 
 //GET all top 50
 routes.route("/top50").get(function (req, res) {
-  dB.getDb()
+  let db_connect = dB.getDb();
+  db_connect
     .collection("top50")
     .find({})
     .toArray(function (err, result) {

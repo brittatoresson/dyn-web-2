@@ -22,8 +22,6 @@ module.exports = {
         console.log("Gick bra");
         return _db;
       }
-      console.log("ingen connection");
-      console.log(ATLAS_URI);
       return callback(err);
     });
   },
