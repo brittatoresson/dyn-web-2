@@ -5,7 +5,7 @@ const ObjectId = require("mongodb").ObjectId;
 
 //GET all top 50
 routes.route("/top50").get(function (req, res) {
-  let db_connect = dB.getDb("hamsterWarsDb");
+  let db_connect = dB.getDb();
   db_connect
     .collection("top50")
     .find({})
@@ -22,7 +22,7 @@ routes.route("/top50").get(function (req, res) {
 routes.route("/top50/random").get(function (req, res) {
   let randomItems = [];
   let allItems = [];
-  let db_connect = dB.getDb();
+  let db_connect = dB.getDb("hamsterWarsDb");
   db_connect
     .collection("top50")
     .find({})
