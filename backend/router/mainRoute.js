@@ -5,7 +5,7 @@ const ObjectId = require("mongodb").ObjectId;
 
 //GET all top 50
 routes.route("/top50").get(function (req, res) {
-  dB.getDb("top50")
+  dB.getDb()
     .collection("top50")
     .find({})
     .toArray(function (err, result) {
@@ -42,8 +42,12 @@ routes.route("/top50/:id").get(function (req, res) {
     .collection("top50")
     .find({ _id: ObjectId(_id) })
     .toArray(function (err, result) {
-      if (err) throw err;
-      res.json(result);
+      if (err) {
+        res.json(404);
+        throw err;
+      } else {
+        res.json(result);
+      }
     });
 });
 
@@ -93,8 +97,8 @@ routes.route("/top50/:id").put(function (req, res) {
 });
 
 //DELETE item from DB
-routes.route("/top50").delete(function (req, res) {
-  let _id = req.body.item._id;
+routes.route("/top50/:id").delete(function (req, res) {
+  let _id = req.params.id;
   dB.getDb("top50")
     .collection("top50")
     .deleteOne({ _id: ObjectId(_id) }, function (err, result) {

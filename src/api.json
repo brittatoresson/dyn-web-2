@@ -2,11 +2,8 @@
   {
     "name": "Anti-Hero",
     "artist": "Taylor Swift",
-    "popularity": 94,
-    "track_number": 3,
+    "album": "Midnights",
     "uri": "spotify:track:0V3wPSX9ygBnCm8psDIegu",
-    "favFood": "ostbollar",
-    "loves": "springa i hamsterhjulet",
     "img": "https://i.scdn.co/image/ab67616d0000b27349d694203245f241a1bcaa72",
     "wins": 0,
     "defeats": 0,
@@ -16,12 +13,51 @@
   {
     "name": "Unholy (feat. Kim Petras)",
     "artist": "Sam Smith",
-    "popularity": 100,
-    "track_number": 1,
+    "album": "Unholy",
     "uri": "spotify:track:3nqQXoyQOWXiESFLlDF1hG",
-    "favFood": "grönmögelost",
-    "loves": "springa i hamsterhjulet",
     "img": "https://i.scdn.co/image/ab67616d0000b273a935e4689f15953311772cc4",
+    "wins": 0,
+    "defeats": 0,
+    "games": 0
+  },
+
+  {
+    "name": "Lavender Haze",
+    "artist": "Taylor Swift",
+    "album": "Midnights",
+    "uri": "spotify:track:5jQI2r1RdgtuT8S3iG8zFC",
+    "img": "https://i.scdn.co/image/ab67616d0000b273bb54dde68cd23e2a268ae0f5",
+    "wins": 0,
+    "defeats": 0,
+    "games": 0
+  },
+  {
+    "name": "Rich Flex",
+    "artist": "Drake",
+    "album": "Her Loss",
+    "uri": "spotify:track:1bDbXMyjaUIooNwFE9wn0N",
+    "img": "https://i.scdn.co/image/ab67616d0000b27302854a7060fccc1a66a4b5ad",
+    "wins": 0,
+    "defeats": 0,
+    "games": 0
+  },
+
+  {
+    "name": " As It Was",
+    "artist": "Harry Styles",
+    "album": "Harry's House",
+    "uri": "spotify:track:4Dvkj6JhhA12EX05fT7y2e",
+    "img": "https://i.scdn.co/image/ab67616d0000b2732e8ed79e177ff6011076f5f0",
+    "wins": 0,
+    "defeats": 0,
+    "games": 0
+  },
+  {
+    "name": "Major Distribution",
+    "artist": "Drake",
+    "album": "Her Loss",
+    "uri": "spotify:track:46s57QULU02Voy0Kup6UEb",
+    "img": "https://i.scdn.co/image/ab67616d0000b27302854a7060fccc1a66a4b5ad",
     "wins": 0,
     "defeats": 0,
     "games": 0

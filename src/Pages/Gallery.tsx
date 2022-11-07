@@ -14,9 +14,8 @@ function Gallery() {
     setAllItem(await response.json());
   }
   async function deleteItem(item: IArtistObject) {
-    const response = await fetch("http://localhost:2000/top50", {
+    const response = await fetch(`http://localhost:2000/top50/${item._id}`, {
       method: "DELETE",
-      body: JSON.stringify({ item }),
       headers: { "Content-Type": "application/json" },
     });
     getAllItems();

@@ -1,7 +1,7 @@
 const { MongoClient } = require("mongodb");
 const db =
   process.env.ATLAS_URI ||
-  "=mongodb+srv://Britta:britta@cluster0.jy6hhtd.mongodb.net/test";
+  "mongodb+srv://Britta:britta@cluster0.jy6hhtd.mongodb.net/test";
 const client = new MongoClient(db, {
   useNewUrlParser: true,
   useunifiedtopology: true,
@@ -19,6 +19,7 @@ module.exports = {
         return _db;
       } else {
         console.log("ingen connection");
+        console.log(ATLAS_URI);
         return callback(err);
       }
     });
