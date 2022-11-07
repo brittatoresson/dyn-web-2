@@ -16,5 +16,10 @@ dbo.connectToServer();
 dbo.getDb();
 
 app.listen(PORT, function () {
+  dbo.connectToServer(function (err) {
+    if (err) {
+      console.error(err);
+    }
+  });
   console.log("Server is running on Port: " + PORT);
 });
