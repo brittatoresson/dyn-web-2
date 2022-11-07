@@ -13,13 +13,13 @@ routes.route("/top50").get(async function (req, res) {
     .collection("top50")
     .find({})
     .toArray(function (err, result) {
-      // if (err) {
-      //   res.json(400);
-      //   throw err;
-      // } else {
-      //   res.json(result);
-      // }
-      res.json(result);
+      if (err) {
+        res.json(400);
+        throw err;
+      } else {
+        res.json(result);
+      }
+      // res.json(result);
     });
 });
 //GET a random from top 50
