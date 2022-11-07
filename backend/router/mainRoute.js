@@ -102,7 +102,12 @@ routes.route("/top50/:id").delete(function (req, res) {
   dB.getDb("top50")
     .collection("top50")
     .deleteOne({ _id: ObjectId(_id) }, function (err, result) {
-      res.json(result);
+      if (err) {
+        res.json(404);
+        throw err;
+      } else {
+        res.json(result);
+      }
     });
 });
 

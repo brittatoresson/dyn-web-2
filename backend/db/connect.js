@@ -21,11 +21,10 @@ module.exports = {
         _db = db.db("hamsterWarsDb");
         console.log("Gick bra");
         return _db;
-      } else {
-        console.log("ingen connection");
-        console.log(ATLAS_URI);
-        return callback(err);
       }
+      console.log("ingen connection");
+      console.log(ATLAS_URI);
+      return callback(err);
     });
   },
 
