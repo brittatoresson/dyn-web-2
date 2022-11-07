@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
 import AddNewItem from "../Components/AddNewItem";
 import { IArtistObject, IArtistArray } from "../Interface/Interface";
-import { BiDotsVerticalRounded } from "react-icons/bi";
-import { IoIosStats, IoMdClose } from "react-icons/io";
+import { IoIosStats } from "react-icons/io";
 
 function Gallery() {
   const [allItem, setAllItem] = useState<IArtistArray>([]);
   const [toggleInputField, setToggleInputField] = useState<boolean>();
   const [defeats, setDefeats] = useState<IArtistArray>([]);
   const [id, setId] = useState("");
+
   async function getAllItems() {
     const response = await fetch("http://localhost:2000/top50");
     setAllItem(await response.json());

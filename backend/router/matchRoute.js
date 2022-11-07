@@ -60,12 +60,10 @@ routes.route("/matchLosers/:id").get(function (req, res) {
       if (err) throw err;
       result.map((i) => {
         if (_id == i.loser._id) {
-          console.log("loser");
           loser.push(i.winner);
           res.json(loser);
           return;
         } else {
-          console.log("nej");
           res.json(400);
         }
       });

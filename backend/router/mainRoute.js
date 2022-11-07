@@ -63,7 +63,6 @@ routes.route("/top50/").post(function (req, res) {
     .collection("top50")
     .insertOne(newObj, function (err, result) {
       if (err) throw err;
-      console.log(result);
       res.json(result);
     });
 });

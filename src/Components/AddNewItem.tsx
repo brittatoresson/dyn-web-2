@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { options } from "../Assets/config";
 import { IArtistObject, IHandleInput, IProps } from "../Interface/Interface";
+import errorHandling from "./ErrorHandling";
 const _ = require("lodash");
 
 function AddNewItem(toggleInputField: IProps) {
@@ -38,10 +39,9 @@ function AddNewItem(toggleInputField: IProps) {
       options
     );
     const data = await response.json();
-    if (!response.ok) {
-      setErrorMsg("please try again");
-    } else if (data.tracks.items.length < 1) {
-      setErrorMsg("please try again");
+    if (!response.ok || data.tracks.items.length < 1) {
+      let error = errorHandling(response.status);
+      setErrorMsg(error);
     } else {
       setSearchSong(data);
     }
