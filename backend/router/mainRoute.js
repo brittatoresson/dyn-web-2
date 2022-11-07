@@ -6,17 +6,19 @@ const ObjectId = require("mongodb").ObjectId;
 //GET all top 50
 routes.route("/top50").get(function (req, res) {
   let db_connect = dB.getDb("hamsterWarsDb");
-  db_connect
-    .collection("top50")
-    .find({})
-    .toArray(function (err, result) {
-      if (err) {
-        res.json(400);
-        throw err;
-      } else {
-        res.json(result);
-      }
-    });
+
+  res.send("hejhopp");
+  // db_connect
+  //   .collection("top50")
+  //   .find({})
+  //   .toArray(function (err, result) {
+  //     if (err) {
+  //       res.json(400);
+  //       throw err;
+  //     } else {
+  //       res.json(result);
+  //     }
+  //   });
 });
 //GET a random from top 50
 routes.route("/top50/random").get(function (req, res) {
