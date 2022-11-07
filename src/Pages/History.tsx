@@ -12,6 +12,8 @@ function History() {
   async function deleteMatch(item: IArtistObject) {
     const response = await fetch(`http://localhost:2000/matches/${item._id}`, {
       method: "DELETE",
+      body: JSON.stringify({ item }),
+
       headers: { "Content-Type": "application/json" },
     });
     getAllMatches();

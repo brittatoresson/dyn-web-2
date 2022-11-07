@@ -5,7 +5,7 @@ export interface IArtistObject {
   _id?: string;
   img?: string;
   uri: string;
-  wins: number | string;
+  wins: any;
   defeats: number | string;
   games: number | string;
   album: string;

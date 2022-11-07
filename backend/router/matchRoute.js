@@ -44,7 +44,8 @@ routes.route("/matchWinners/:id").get(function (req, res) {
         res.json(defeats);
         return;
       } else {
-        res.json({ status: "no defeats" });
+        // res.json({ status: "no defeats" });
+        res.json({ status: 404 });
       }
     });
 });
@@ -100,12 +101,26 @@ routes.route("/matches").put(function (req, res) {
 
 //DELETE match from ID
 routes.route("/matches/:id").delete(function (req, res) {
-  let _id = req.params;
+  let _id = req.params.id;
+  let winner_id = req.body.item.winner._id;
+  let loser_id = req.body.item.loser._id;
+
   dB.getDb("matchDb")
     .collection("matchDb")
-    .deleteOne({ _id: ObjectId(_id) }, function (err, result) {
-      res.json(200);
-    });
+    .deleteOne({ _id: ObjectId(_id) }, function (err, result) {});
+  dB.getDb("top50")
+    .collection("top50")
+    .updateOne(
+      { _id: ObjectId(winner_id) },
+      { $inc: { defeats: -1, games: -1, wins: -1 } }
+    );
+  dB.getDb("top50")
+    .collection("top50")
+    .updateOne(
+      { _id: ObjectId(loser_id) },
+      { $inc: { defeats: -1, games: -1, wins: -1 } }
+    );
+  res.json(200);
 });
 
 // GET top 5 winners
@@ -172,8 +187,8 @@ routes.route("/fewMatches").get(async function (req, response) {
 //   console.log("hej");
 //   dB.getDb("top50")
 //     .collection("top50")
-//     .updateMany({}, { $set: { album: "sampleText" } });
-//   // .updateMany({}, { $set: { wins: 0, games: 0, defeats: 0 } });
+//     // .updateMany({}, { $set: { album: "sampleText" } });
+//     .updateMany({}, { $set: { wins: 0, games: 0, defeats: 0 } });
 //   res.json(200);
 // });
 
@@ -184,5 +199,9 @@ routes.route("/fewMatches").get(async function (req, response) {
 //     headers: { "Content-Type": "application/json" },
 //   });
 // }
+
+// useEffect(() => {
+//   test();
+// });
 
 module.exports = routes;

@@ -24,12 +24,28 @@ function Gallery() {
   async function getDefeats(item: any) {
     const response = await fetch(`http://localhost:2000/matchWinners/${item}`);
     setDefeats(await response.json());
+
     setId(item);
   }
-
+  const [sum, setSum] = useState(0);
   useEffect(() => {
     getAllItems();
   }, [toggleInputField]);
+
+  function getPopularity() {
+    let totalGames: any[] = [];
+    allItem.map((item) => {
+      totalGames.push(item.games);
+      var sum = totalGames.reduce(function (a, b) {
+        return parseInt(a) + parseInt(b);
+      }, 0);
+      setSum(sum);
+    });
+  }
+
+  useEffect(() => {
+    getPopularity();
+  }, [allItem]);
 
   return (
     <section className="gallery">
@@ -48,6 +64,7 @@ function Gallery() {
         <ul className="galleryHeaders">
           <p className="name">Track</p>
           <p className="albums">Album</p>
+          <p className="popularity">Popularity</p>
         </ul>
         {allItem.map((item, i) => (
           <ul className="galleryPost" key={i}>
@@ -55,6 +72,13 @@ function Gallery() {
               ✖️
             </li>
             <img src={item.img}></img>
+            {item.wins > 0 ? (
+              <li className="sum">
+                {Math.round((sum / 100) * item.wins * 1000) / 10} %{" "}
+              </li>
+            ) : (
+              <li className="sum">0 %</li>
+            )}
             <li className="title">{item.name}</li>
             <li className="artist">{item.artist}</li>
             <li className="album">{item.album}</li>

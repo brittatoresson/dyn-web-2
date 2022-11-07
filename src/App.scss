@@ -150,7 +150,7 @@ nav {
 .spotifyPlayer {
   .PlayerRSWP {
     height: 1rem;
-    width: 20vw;
+    width: 30vw;
   }
   background-color: black;
   .rswp__toggle,
@@ -162,6 +162,10 @@ nav {
   a {
     color: var(--color);
   }
+  .rswp__toggle {
+    position: relative;
+    left: -22vw;
+  }
 }
 
 ////////GALLERY
@@ -170,7 +174,7 @@ nav {
   margin: 0;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  grid-template-areas: " .  . . name name name  albums albums  . . . . ";
+  grid-template-areas: " .  . . name name name  albums albums  popularity popularity . . ";
 }
 .galleryPosts {
   background-color: var(--dark-bg-color);
@@ -181,8 +185,8 @@ nav {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-areas:
-    " delete img img title title title album album navdot infoContainer  infoContainer infoContainer"
-    " delete img img artist artist artist album album navdot infoContainer infoContainer infoContainer";
+    " delete img img title title title album album  sum  navdot infoContainer infoContainer"
+    " delete img img artist artist artist album album sum  navdot infoContainer infoContainer";
   background-color: black;
   img {
     grid-area: img;
@@ -197,6 +201,9 @@ nav {
 }
 .albums {
   grid-area: albums;
+}
+.popularity {
+  grid-area: popularity;
 }
 .title {
   padding: 0.5rem;
@@ -221,6 +228,9 @@ nav {
     transform: scale(2);
     cursor: pointer;
   }
+}
+.sum {
+  grid-area: sum;
 }
 .gameInfoContainer {
   grid-area: infoContainer;
