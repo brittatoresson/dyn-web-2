@@ -4,9 +4,10 @@ const dB = require("../db/connect");
 const ObjectId = require("mongodb").ObjectId;
 
 //GET all top 50
-routes.route("/top50").get(function (req, res) {
-  let db_connect = dB.getDb("hamsterWarsDb");
+routes.route("/top50").get(async function (req, res) {
+  let db_connect = await dB.getDb("hamsterWarsDb");
   // res.send("hejhopp");
+  console.log(db_connect);
 
   db_connect
     .collection("top50")

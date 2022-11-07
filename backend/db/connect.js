@@ -16,7 +16,6 @@ let _db;
 module.exports = {
   connectToServer: function (callback) {
     client.connect(function (err, db) {
-      console.log(db);
       if (db) {
         _db = db.db("hamsterWarsDb");
         console.log("Gick bra");
