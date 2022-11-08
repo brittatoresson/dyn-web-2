@@ -23,6 +23,5 @@ export interface IHandleInput {
 }
 
 export interface IProps {
-  // start: boolean;
   setToggleInputField: (active: boolean) => void;
 }

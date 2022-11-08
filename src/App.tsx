@@ -6,20 +6,19 @@ import Gallery from "./Pages/Gallery";
 import LandingPage from "./Pages/LandingPage";
 import Statistics from "./Pages/Statistics";
 import History from "./Pages/History";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { options } from "./Assets/config";
 
 function App() {
   const [test, setTest] = useState<any>();
-  // let playlist = "https://api.spotify.com/v1/playlists/37i9dQZEVXbMDoHDwVN2tF";
-  let playlist = "https://api.spotify.com/v1/playlists/37i9dQZEVXbLoATJ81JYXz";
+  // let playlist = "https://api.spotify.com/v1/playlists/37i9dQZEVXbLoATJ81JYXz";
 
-  useEffect(() => {
-    fetch(playlist, options)
-      .then((response) => response.json())
-      .then((data) => setTest(data.tracks))
-      .catch((err) => console.error(err));
-  }, []);
+  // useEffect(() => {
+  //   fetch(playlist, options)
+  //     .then((response) => response.json())
+  //     .then((data) => setTest(data.tracks))
+  //     .catch((err) => console.error(err));
+  // }, []);
 
   // useEffect(() => {
   //   if (test) {

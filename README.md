@@ -1,3 +1,6 @@
+THIS OR THAT?
+Välj din favoritlåt från Spotifys top 20 lista!
+
 TOKEN TILL SPOTIFY
 För att kunna addera nya låtar till databasen och spela upp ljud behövs en token som hämtas via länken på denna sida : //https://react-spotify-web-playback.gilbarbara.dev/ . OBS behöver vara ett premiumkonto för att får access för att splea upp musiken.
 Lägg in din token i assets/config.js -filen

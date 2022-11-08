@@ -6,14 +6,14 @@ function NrGames() {
   const [manyGames, setManyGames] = useState<IArtistArray>([]);
   const _ = require("lodash");
 
-  async function getFewGames() {
+  async function getFewGamesPlayed() {
     const response = await fetch(
       "https://dyn-web-2-8tqt.onrender.com/fewMatches"
     );
     // const response = await fetch("http://localhost:2000/fewMatches");
     setFewGames(await response.json());
   }
-  async function getManyGames() {
+  async function getManyGamesPlayed() {
     const response = await fetch(
       "https://dyn-web-2-8tqt.onrender.com/manyMatches"
     );
@@ -21,8 +21,8 @@ function NrGames() {
     setManyGames(await response.json());
   }
   useEffect(() => {
-    getFewGames();
-    getManyGames();
+    getFewGamesPlayed();
+    getManyGamesPlayed();
   }, []);
 
   return (

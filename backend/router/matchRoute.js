@@ -15,7 +15,6 @@ routes.route("/matches").get(function (req, res) {
 });
 //GET match from ID
 routes.route("/matches/:id").get(function (req, res) {
-  console.log(req.params);
   let _id = req.params.id;
   console.log(_id);
   dB.getDb("matchDb")
@@ -44,13 +43,12 @@ routes.route("/matchWinners/:id").get(function (req, res) {
         res.json(defeats);
         return;
       } else {
-        // res.json({ status: "no defeats" });
         res.json({ status: 404 });
       }
     });
 });
 
-//GET match losers OKLART OM DENNA BEHÖVS
+//GET match losers
 routes.route("/matchLosers/:id").get(function (req, res) {
   let loser = [];
   let _id = req.params.id;
@@ -85,7 +83,7 @@ routes.route("/matches").post(function (req, res) {
     });
 });
 
-//PUT wins and defeats
+//PUT increase metrics for each wins and defeats
 routes.route("/matches").put(function (req, res) {
   let winner_id = req.body.winner;
   let loser_id = req.body.loser;
@@ -151,7 +149,8 @@ routes.route("/losers").get(async function (req, response) {
       response.json(top5WinDefeats);
     });
 });
-// GET top 5 losers -  returnerar en array med id för de hamstrar som spelat mest antal matcher.
+
+// GET top 5 gamed played
 routes.route("/manyMatches").get(async function (req, response) {
   let db_connect = dB.getDb();
   let manyGames = [];
@@ -165,7 +164,8 @@ routes.route("/manyMatches").get(async function (req, response) {
       response.json(manyGames);
     });
 });
-// GET  returnerar en array med id för de hamstrar som spelat flest antal matcher.
+
+// GET bottom 5 games played
 routes.route("/fewMatches").get(async function (req, response) {
   let db_connect = dB.getDb();
   let fewGames = [];
@@ -180,7 +180,7 @@ routes.route("/fewMatches").get(async function (req, response) {
     });
 });
 
-// PUT REST GAMES!!!
+// PUT - REST METRICS FOR GAMES, WINS AND DEFEATS
 // routes.route("/updatematches").put(function (req, res) {
 //   let winner_id = req.body.winner;
 //   let loser_id = req.body.loser;
@@ -192,6 +192,7 @@ routes.route("/fewMatches").get(async function (req, response) {
 //   res.json(200);
 // });
 
+//USE IN ANY COMPONENT IN FRONTEND
 // async function test() {
 //   const response = await fetch("http://localhost:2000/updatematches", {
 //     method: "PUT",

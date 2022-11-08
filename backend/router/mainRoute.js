@@ -3,7 +3,7 @@ const routes = express.Router();
 const dB = require("../db/connect");
 const ObjectId = require("mongodb").ObjectId;
 
-//GET all top 50
+//GET all top 20
 routes.route("/top20").get(function (req, res) {
   let db_connect = dB.getDb("hamsterWarsDb");
   db_connect
@@ -18,7 +18,7 @@ routes.route("/top20").get(function (req, res) {
       }
     });
 });
-//GET a random from top 50
+//GET a random from top 20
 routes.route("/top20/random").get(function (req, res) {
   let randomItems = [];
   let allItems = [];
@@ -37,7 +37,8 @@ routes.route("/top20/random").get(function (req, res) {
       res.json([firstRandom, secondRandom]);
     });
 });
-//GET from ID
+
+//GET object from ID
 routes.route("/top20/:id").get(function (req, res) {
   let _id = req.params.id;
   dB.getDb("top20")
@@ -98,7 +99,7 @@ routes.route("/top20/:id").put(function (req, res) {
   res.json(200);
 });
 
-//DELETE item from DB
+//DELETE object from DB
 routes.route("/top20/:id").delete(function (req, res) {
   let _id = req.params.id;
   dB.getDb("top20")
@@ -111,34 +112,6 @@ routes.route("/top20/:id").delete(function (req, res) {
         res.json(200);
       }
     });
-});
-var request = require("request");
-/////////
-var client_id = "309c5a9be23145fd83d6866de14f9e75";
-var client_secret = "2161234f654441c9935979e17035403a";
-
-var authOptions = {
-  url: "https://accounts.spotify.com/api/token",
-  headers: {
-    Authorization:
-      "Basic " +
-      new Buffer.from(client_id + ":" + client_secret).toString("base64"),
-  },
-  form: {
-    grant_type: "client_credentials",
-  },
-  json: true,
-};
-
-routes.route("/spotify").get(function (req, res) {
-  console.log("hej");
-  request.post(authOptions, function (error, response, body) {
-    if (!error && response.statusCode === 200) {
-      var token = body.access_token;
-    }
-    console.log(response.body.access_token);
-    res.json(response.body.access_token);
-  });
 });
 
 module.exports = routes;

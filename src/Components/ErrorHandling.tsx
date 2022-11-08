@@ -7,7 +7,7 @@ function errorHandling(error: number) {
   } else if (error == 404) {
     errorMsg = "Page not found, please try again";
   } else if (error == 500) {
-    errorMsg = "can't connect to server ";
+    errorMsg = "Can't connect to server ";
   } else {
     errorMsg = "Oops something went wrong, please try again";
   }

@@ -7,12 +7,14 @@ function Gallery() {
   const [allItem, setAllItem] = useState<IArtistArray>([]);
   const [toggleInputField, setToggleInputField] = useState<boolean>();
   const [defeats, setDefeats] = useState<IArtistArray>([]);
-  const [id, setId] = useState("");
+  const [id, setId] = useState<string | undefined>("");
+  const [sum, setSum] = useState(0);
 
-  async function getAllItems() {
+  async function getAllItemsFromTop20() {
     const response = await fetch("http://localhost:2000/top20");
     setAllItem(await response.json());
   }
+
   async function deleteItem(item: IArtistObject) {
     const response = await fetch(
       `https://dyn-web-2-8tqt.onrender.com/top20/${item._id}`,
@@ -22,10 +24,10 @@ function Gallery() {
         headers: { "Content-Type": "application/json" },
       }
     );
-    getAllItems();
+    getAllItemsFromTop20();
   }
 
-  async function getDefeats(item: any) {
+  async function getDefeats(item: string | undefined) {
     const response = await fetch(
       `https://dyn-web-2-8tqt.onrender.com/matchWinners/${item}`
     );
@@ -33,9 +35,8 @@ function Gallery() {
     setDefeats(await response.json());
     setId(item);
   }
-  const [sum, setSum] = useState(0);
   useEffect(() => {
-    getAllItems();
+    getAllItemsFromTop20();
   }, [toggleInputField]);
 
   function getPopularity() {

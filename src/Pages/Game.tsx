@@ -10,7 +10,7 @@ function Game() {
   let loser: any;
   let winner: any;
 
-  async function getRandomItems() {
+  async function getTwoRandomItems() {
     const response = await fetch(
       "https://dyn-web-2-8tqt.onrender.com/top20/random"
     );
@@ -50,13 +50,13 @@ function Game() {
   }
 
   function resetGame() {
-    getRandomItems();
+    getTwoRandomItems();
     setPlayers([]);
     setShowStatistics(false);
   }
 
   useEffect(() => {
-    getRandomItems();
+    getTwoRandomItems();
   }, []);
 
   return (

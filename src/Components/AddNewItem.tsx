@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { options } from "../Assets/config";
-import { IArtistObject, IHandleInput, IProps } from "../Interface/Interface";
+import { IArtistObject, IProps } from "../Interface/Interface";
 import errorHandling from "./ErrorHandling";
 const _ = require("lodash");
 
@@ -91,7 +91,7 @@ function AddNewItem(toggleInputField: IProps) {
         ></input>
         <button type="submit" value="sök">
           {" "}
-          sök
+          Search
         </button>
       </form>
 

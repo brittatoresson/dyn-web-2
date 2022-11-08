@@ -7,7 +7,7 @@ function LandingPage() {
   const navigate = useNavigate();
   const [errMsg, setErrMsg] = useState<any>();
 
-  function getRandomItems() {
+  function testConnectionToServer() {
     fetch("https://dyn-web-2-8tqt.onrender.com/top20")
       // fetch("http://localhost:2000/top20/")
       .then((response) => {
@@ -25,7 +25,7 @@ function LandingPage() {
   }
 
   useEffect(() => {
-    getRandomItems();
+    testConnectionToServer();
   }, []);
 
   return (
@@ -34,7 +34,7 @@ function LandingPage() {
         errMsg
       ) : (
         <h1 onClick={() => navigate("./game")}>
-          This or that? Just click on the song you like the most. Redy to start?{" "}
+          This or that? Just click on the song you like the most. Redy to start?
           <ImHeadphones />
         </h1>
       )}
