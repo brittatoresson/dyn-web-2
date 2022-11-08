@@ -61,5 +61,126 @@
     "wins": 0,
     "defeats": 0,
     "games": 0
+  },
+
+  {
+    "name": "DAY ONE",
+    "artist": "Einár",
+    "album": "Her Loss",
+    "uri": "spotify:track:3zLBP4HtaSYRA4NcAqS3Jo",
+    "img": "https://i.scdn.co/image/ab67616d0000b27302854a7060fccc1a66a4b5ad",
+    "wins": 0,
+    "defeats": 0,
+    "games": 0
+  },
+  {
+    "name": "Ingen annan rör mig som du",
+    "artist": "Molly Hammar",
+    "album": "Ingen annan rör mig som du",
+    "uri": "spotify:track:6D434uIe6ssDPXbCx9O9Bn",
+    "img": "https://i.scdn.co/image/ab67616d0000b27384c4dba22e7723fa32dee445",
+    "wins": 0,
+    "defeats": 0,
+    "games": 0
+  },
+  {
+    "name": "I'm Good (Blue)",
+    "artist": "David Guetta",
+    "album": "I'm Good (Blue)",
+    "uri": "spotify:track:4uUG5RXrOk84mYEfFvj3cK",
+    "img": "https://i.scdn.co/image/ab67616d0000b273933c036cd61cd40d3f17a9c4",
+    "wins": 0,
+    "defeats": 0,
+    "games": 0
+  },
+  {
+    "name": "Banan Melon Kiwi & Citron",
+    "artist": "Hooja",
+    "album": "Banan Melon Kiwi & Citron",
+    "uri": "spotify:track:2ZfaBbRMcEgSF8JnJIaEBP",
+    "img": "https://i.scdn.co/image/ab67616d0000b2735ab78a1995a49eac4e422318",
+    "wins": 0,
+    "defeats": 0,
+    "games": 0
+  },
+  {
+    "name": "Din låt",
+    "artist": "Victor Leksell",
+    "album": "Din låt",
+    "uri": "spotify:track:3xPsqMJQNM14OrawTBiK4G",
+    "img": "https://i.scdn.co/image/ab67616d0000b27335027e7d4cca5bc700687e19",
+    "wins": 0,
+    "defeats": 0,
+    "games": 0
+  },
+  {
+    "name": "Dum",
+    "artist": "Ant Wan",
+    "album": "The Only Wan (Deluxe)",
+    "uri": "spotify:track:1PcFYA0p9UxvQkLe18s8gz",
+    "img": "https://i.scdn.co/image/ab67616d0000b27321a195d43794116be90b6920",
+    "wins": 0,
+    "defeats": 0,
+    "games": 0
+  },
+  {
+    "name": "Hälsa Gud",
+    "artist": "Miss Li",
+    "album": "Hälsa Gud",
+    "uri": "spotify:track:5g9gZGiXlk747pESQzmmRT",
+    "img": "https://i.scdn.co/image/ab67616d0000b273a0b880edc88f6a1a1edc6c7a",
+    "wins": 0,
+    "defeats": 0,
+    "games": 0
+  },
+  {
+    "name": "ENSAM (feat. estraden)",
+    "artist": "LOAM",
+    "album": "ENSAM (feat. estraden)",
+    "uri": "spotify:track:7EN8ZT8lGdXH58ulXwW94R",
+    "img": " https://i.scdn.co/image/ab67616d0000b27337cce43043c9e03df47f9763",
+    "wins": 0,
+    "defeats": 0,
+    "games": 0
+  },
+  {
+    "name": "Babblarnas vaggvisa",
+    "artist": "Babblarna",
+    "album": "Babblarnas vaggvisa",
+    "uri": "spotify:track:1VJRxqJhpEIpnHon7ssp1p",
+    "img": " https://i.scdn.co/image/ab67616d0000b273475bf34098ee12a02d9a714b",
+    "wins": 0,
+    "defeats": 0,
+    "games": 0
+  },
+  {
+    "name": "Mamma",
+    "artist": "Albin Lee Meldau",
+    "album": "Mamma",
+    "uri": "spotify:track:5vpu2fogPhAutzdINePhNQ",
+    "img": " https://i.scdn.co/image/ab67616d0000b273532f20ba4f17249995fd29ed",
+    "wins": 0,
+    "defeats": 0,
+    "games": 0
+  },
+  {
+    "name": "Rymden och tillbaks",
+    "artist": "Norlie & KKV",
+    "album": "Rymden och tillbaks (Space Invades My Mind)",
+    "uri": "spotify:track:3T66ZaObDiVo0XJxLqXoyY",
+    "img": " https://i.scdn.co/image/ab67616d0000b273eeccbfac26facb2912e1d858",
+    "wins": 0,
+    "defeats": 0,
+    "games": 0
+  },
+  {
+    "name": "Lift Me Up ",
+    "artist": "Rihanna",
+    "album": "Lift Me Up (From Black Panther: Wakanda Forever)",
+    "uri": "spotify:track:35ovElsgyAtQwYPYnZJECg",
+    "img": " https://i.scdn.co/image/ab67616d0000b273a790c56cff6e3463bf9935cb",
+    "wins": 0,
+    "defeats": 0,
+    "games": 0
   }
 ]

@@ -90,11 +90,11 @@ routes.route("/matches").put(function (req, res) {
   let winner_id = req.body.winner;
   let loser_id = req.body.loser;
   console.log(req.body);
-  dB.getDb("top50")
-    .collection("top50")
+  dB.getDb("top20")
+    .collection("top20")
     .updateOne({ _id: ObjectId(winner_id) }, { $inc: { wins: 1, games: 1 } });
-  dB.getDb("top50")
-    .collection("top50")
+  dB.getDb("top20")
+    .collection("top20")
     .updateOne({ _id: ObjectId(loser_id) }, { $inc: { defeats: 1, games: 1 } });
   res.json(200);
 });
@@ -108,14 +108,14 @@ routes.route("/matches/:id").delete(function (req, res) {
   dB.getDb("matchDb")
     .collection("matchDb")
     .deleteOne({ _id: ObjectId(_id) }, function (err, result) {});
-  dB.getDb("top50")
-    .collection("top50")
+  dB.getDb("top20")
+    .collection("top20")
     .updateOne(
       { _id: ObjectId(winner_id) },
       { $inc: { defeats: -1, games: -1, wins: -1 } }
     );
-  dB.getDb("top50")
-    .collection("top50")
+  dB.getDb("top20")
+    .collection("top20")
     .updateOne(
       { _id: ObjectId(loser_id) },
       { $inc: { defeats: -1, games: -1, wins: -1 } }
@@ -128,7 +128,7 @@ routes.route("/winners").get(async function (req, response) {
   let db_connect = dB.getDb();
   let top5Win;
   db_connect
-    .collection("top50")
+    .collection("top20")
     .find({})
     .toArray(function (err, result) {
       if (err) throw err;
@@ -142,7 +142,7 @@ routes.route("/losers").get(async function (req, response) {
   let db_connect = dB.getDb();
   let top5WinDefeats;
   db_connect
-    .collection("top50")
+    .collection("top20")
     .find({})
     .toArray(function (err, result) {
       if (err) throw err;
@@ -156,11 +156,11 @@ routes.route("/manyMatches").get(async function (req, response) {
   let db_connect = dB.getDb();
   let manyGames = [];
   db_connect
-    .collection("top50")
+    .collection("top20")
     .find({})
     .toArray(function (err, result) {
       if (err) throw err;
-      result.sort((a, b) => a.games - b.games);
+      result.sort((a, b) => b.games - a.games);
       manyGames = result.slice(0, 5);
       response.json(manyGames);
     });
@@ -170,11 +170,11 @@ routes.route("/fewMatches").get(async function (req, response) {
   let db_connect = dB.getDb();
   let fewGames = [];
   db_connect
-    .collection("top50")
+    .collection("top20")
     .find({})
     .toArray(function (err, result) {
       if (err) throw err;
-      result.sort((a, b) => b.games - a.games);
+      result.sort((a, b) => a.games - b.games);
       fewGames = result.slice(0, 5);
       response.json(fewGames);
     });
@@ -185,8 +185,8 @@ routes.route("/fewMatches").get(async function (req, response) {
 //   let winner_id = req.body.winner;
 //   let loser_id = req.body.loser;
 //   console.log("hej");
-//   dB.getDb("top50")
-//     .collection("top50")
+//   dB.getDb("top20")
+//     .collection("top20")
 //     // .updateMany({}, { $set: { album: "sampleText" } });
 //     .updateMany({}, { $set: { wins: 0, games: 0, defeats: 0 } });
 //   res.json(200);

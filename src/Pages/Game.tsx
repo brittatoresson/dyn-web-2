@@ -11,7 +11,10 @@ function Game() {
   let winner: any;
 
   async function getRandomItems() {
-    const response = await fetch("http://localhost:2000/top50/random");
+    const response = await fetch(
+      "https://dyn-web-2-8tqt.onrender.com/top20/random"
+    );
+    // const response = await fetch("http://localhost:2000/top20/random");
     const data = await response.json();
     setPlayers(data);
   }
@@ -21,21 +24,29 @@ function Game() {
     winner = players.find((player) => player._id == item._id);
     setWinners(winner);
 
-    const response = await fetch("http://localhost:2000/matches", {
-      method: "POST",
-      body: JSON.stringify({ winner: winner, loser: loser }),
-      headers: { "Content-Type": "application/json" },
-    });
+    const response = await fetch(
+      "https://dyn-web-2-8tqt.onrender.com/matches",
+      {
+        // const response = await fetch("http://localhost:2000/matches", {
+        method: "POST",
+        body: JSON.stringify({ winner: winner, loser: loser }),
+        headers: { "Content-Type": "application/json" },
+      }
+    );
     updateStatistics(item);
     setShowStatistics(true);
   }
 
   async function updateStatistics(item: IArtistObject) {
-    const response = await fetch("http://localhost:2000/matches", {
-      method: "PUT",
-      body: JSON.stringify({ winner: winner?._id, loser: loser?._id }),
-      headers: { "Content-Type": "application/json" },
-    });
+    const response = await fetch(
+      "https://dyn-web-2-8tqt.onrender.com/matches",
+      {
+        // const response = await fetch("http://localhost:2000/matches", {
+        method: "PUT",
+        body: JSON.stringify({ winner: winner?._id, loser: loser?._id }),
+        headers: { "Content-Type": "application/json" },
+      }
+    );
   }
 
   function resetGame() {

@@ -8,7 +8,8 @@ function LandingPage() {
   const [errMsg, setErrMsg] = useState<any>();
 
   function getRandomItems() {
-    fetch("http://localhost:2000/top50/")
+    fetch("https://dyn-web-2-8tqt.onrender.com/top20")
+      // fetch("http://localhost:2000/top20/")
       .then((response) => {
         if (response.status == 200) {
           return response.json();

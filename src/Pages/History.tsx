@@ -5,17 +5,22 @@ function History() {
   const [allMatches, setAllMatches] = useState<IArtistArray>([]);
 
   async function getAllMatches() {
-    const response = await fetch("http://localhost:2000/matches");
+    const response = await fetch("https://dyn-web-2-8tqt.onrender.com/matches");
+    // const response = await fetch("http://localhost:2000/matches");
     setAllMatches(await response.json());
   }
 
   async function deleteMatch(item: IArtistObject) {
-    const response = await fetch(`http://localhost:2000/matches/${item._id}`, {
-      method: "DELETE",
-      body: JSON.stringify({ item }),
+    const response = await fetch(
+      `https://dyn-web-2-8tqt.onrender.com/matches/${item._id}`,
+      {
+        // const response = await fetch(`http://localhost:2000/matches/${item._id}`, {
+        method: "DELETE",
+        body: JSON.stringify({ item }),
 
-      headers: { "Content-Type": "application/json" },
-    });
+        headers: { "Content-Type": "application/json" },
+      }
+    );
     getAllMatches();
   }
 

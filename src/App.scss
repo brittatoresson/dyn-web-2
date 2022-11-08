@@ -174,7 +174,7 @@ nav {
   margin: 0;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  grid-template-areas: " .  . . name name name  albums albums  popularity popularity . . ";
+  grid-template-areas: " .  . . name name name  albums albums popularity popularity . . ";
 }
 .galleryPosts {
   background-color: var(--dark-bg-color);
@@ -231,6 +231,8 @@ nav {
 }
 .sum {
   grid-area: sum;
+  display: flex;
+  align-items: center;
 }
 .gameInfoContainer {
   grid-area: infoContainer;
@@ -238,6 +240,9 @@ nav {
   flex-direction: row;
   overflow: scroll;
   height: 9vh;
+  ul {
+    padding: 0;
+  }
 }
 
 .delete {

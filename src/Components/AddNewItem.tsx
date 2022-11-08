@@ -20,7 +20,8 @@ function AddNewItem(toggleInputField: IProps) {
   const [errorMsg, setErrorMsg] = useState<string>("");
 
   async function addNewSong() {
-    const response = await fetch("http://localhost:2000/top50", {
+    const response = await fetch("https://dyn-web-2-8tqt.onrender.com/top20", {
+      // const response = await fetch("http://localhost:2000/top20", {
       method: "POST",
       body: JSON.stringify({ item }),
       headers: { "content-type": "application/json" },
@@ -35,10 +36,11 @@ function AddNewItem(toggleInputField: IProps) {
     setSearchSong([]);
     e.preventDefault();
     const response = await fetch(
-      `https://api.spotify.com/v1/search?q=remaster%2520track%3A${track}%2520artist%3A${artist}&type=track&market=ES&limit=10&offset=5`,
+      `https://api.spotify.com/v1/search?q=remaster%2520trak%3A${track}%2520artist%3A${artist}&type=track&market=ES&limit=10&offset=5`,
       options
     );
     const data = await response.json();
+
     if (!response.ok || data.tracks.items.length < 1) {
       let error = errorHandling(response.status);
       setErrorMsg(error);

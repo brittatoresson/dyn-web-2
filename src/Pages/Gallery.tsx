@@ -10,21 +10,27 @@ function Gallery() {
   const [id, setId] = useState("");
 
   async function getAllItems() {
-    const response = await fetch("http://localhost:2000/top50");
+    const response = await fetch("http://localhost:2000/top20");
     setAllItem(await response.json());
   }
   async function deleteItem(item: IArtistObject) {
-    const response = await fetch(`http://localhost:2000/top50/${item._id}`, {
-      method: "DELETE",
-      headers: { "Content-Type": "application/json" },
-    });
+    const response = await fetch(
+      `https://dyn-web-2-8tqt.onrender.com/top20/${item._id}`,
+      {
+        // const response = await fetch(`http://localhost:2000/top20/${item._id}`, {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" },
+      }
+    );
     getAllItems();
   }
 
   async function getDefeats(item: any) {
-    const response = await fetch(`http://localhost:2000/matchWinners/${item}`);
+    const response = await fetch(
+      `https://dyn-web-2-8tqt.onrender.com/matchWinners/${item}`
+    );
+    // const response = await fetch(`http://localhost:2000/matchWinners/${item}`);
     setDefeats(await response.json());
-
     setId(item);
   }
   const [sum, setSum] = useState(0);
