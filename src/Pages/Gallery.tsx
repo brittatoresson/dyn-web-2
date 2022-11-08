@@ -11,7 +11,8 @@ function Gallery() {
   const [sum, setSum] = useState(0);
 
   async function getAllItemsFromTop20() {
-    const response = await fetch("http://localhost:2000/top20");
+    const response = await fetch("https://dyn-web-2-8tqt.onrender.com/top20");
+    // const response = await fetch("http://localhost:2000/top20");
     setAllItem(await response.json());
   }
 
