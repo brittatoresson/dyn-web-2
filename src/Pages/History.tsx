@@ -10,6 +10,8 @@ function History() {
   }
 
   async function deleteMatch(item: IArtistObject) {
+    console.log(item);
+
     const response = await fetch(
       `https://dyn-web-2-8tqt.onrender.com/matches/${item._id}`,
       {

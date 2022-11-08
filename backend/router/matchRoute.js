@@ -100,24 +100,35 @@ routes.route("/matches").put(function (req, res) {
 //DELETE match from ID
 routes.route("/matches/:id").delete(function (req, res) {
   let _id = req.params.id;
+  let winnerObj = req.params.winner;
+  let loserObj = req.params.loser;
+  console.log(object);
   let winner_id = req.body.item.winner._id;
   let loser_id = req.body.item.loser._id;
 
   dB.getDb("matchDb")
     .collection("matchDb")
     .deleteOne({ _id: ObjectId(_id) }, function (err, result) {});
-  dB.getDb("top20")
-    .collection("top20")
-    .updateOne(
-      { _id: ObjectId(winner_id) },
-      { $inc: { defeats: -1, games: -1, wins: -1 } }
-    );
-  dB.getDb("top20")
-    .collection("top20")
-    .updateOne(
-      { _id: ObjectId(loser_id) },
-      { $inc: { defeats: -1, games: -1, wins: -1 } }
-    );
+  if (winnerObj.defeats && winnerObj.wins > 1) {
+    dB.getDb("top20")
+      .collection("top20")
+      .updateOne(
+        { _id: ObjectId(winner_id) },
+        { $inc: { defeats: -1, games: -1, wins: -1 } }
+      );
+  } else {
+    res.json(404);
+  }
+  if (loserObj.defeats && winnerObj.wins > 1) {
+    dB.getDb("top20")
+      .collection("top20")
+      .updateOne(
+        { _id: ObjectId(loser_id) },
+        { $inc: { defeats: -1, games: -1, wins: -1 } }
+      );
+  } else {
+    res.json(404);
+  }
   res.json(200);
 });
 

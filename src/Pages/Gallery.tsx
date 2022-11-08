@@ -79,9 +79,7 @@ function Gallery() {
             </li>
             <img src={item.img}></img>
             {item.wins > 0 ? (
-              <li className="sum">
-                {Math.round((sum / 100) * item.wins * 10)} %{" "}
-              </li>
+              <li className="sum">{Math.round((item.wins / sum) * 100)} % </li>
             ) : (
               <li className="sum">0 %</li>
             )}
