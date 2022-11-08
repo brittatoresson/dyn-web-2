@@ -10,14 +10,12 @@ function NrGames() {
     const response = await fetch(
       "https://dyn-web-2-8tqt.onrender.com/fewMatches"
     );
-    // const response = await fetch("http://localhost:2000/fewMatches");
     setFewGames(await response.json());
   }
   async function getManyGamesPlayed() {
     const response = await fetch(
       "https://dyn-web-2-8tqt.onrender.com/manyMatches"
     );
-    // const response = await fetch("http://localhost:2000/manyMatches");
     setManyGames(await response.json());
   }
   useEffect(() => {

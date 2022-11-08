@@ -6,7 +6,6 @@ function History() {
 
   async function getAllMatches() {
     const response = await fetch("https://dyn-web-2-8tqt.onrender.com/matches");
-    // const response = await fetch("http://localhost:2000/matches");
     setAllMatches(await response.json());
   }
 
@@ -14,7 +13,6 @@ function History() {
     const response = await fetch(
       `https://dyn-web-2-8tqt.onrender.com/matches/${item._id}`,
       {
-        // const response = await fetch(`http://localhost:2000/matches/${item._id}`, {
         method: "DELETE",
         body: JSON.stringify({ item }),
 

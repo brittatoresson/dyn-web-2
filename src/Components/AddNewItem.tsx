@@ -21,7 +21,6 @@ function AddNewItem(toggleInputField: IProps) {
 
   async function addNewSong() {
     const response = await fetch("https://dyn-web-2-8tqt.onrender.com/top20", {
-      // const response = await fetch("http://localhost:2000/top20", {
       method: "POST",
       body: JSON.stringify({ item }),
       headers: { "content-type": "application/json" },

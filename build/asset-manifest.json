@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/static/css/main.d7f320e3.css",
-    "main.js": "/static/js/main.d7eb3365.js",
+    "main.css": "/static/css/main.8056a1bb.css",
+    "main.js": "/static/js/main.81bb4652.js",
     "static/media/Gilroy-Light.ttf": "/static/media/Gilroy-Light.896263ef5d2514291c78.ttf",
     "static/media/Gilroy-Bold.ttf": "/static/media/Gilroy-Bold.bf181b073b4773f45c8e.ttf",
     "static/media/ProductSans-Regular.ttf": "/static/media/ProductSans-Regular.2765c69613690b1b9c03.ttf",
     "static/media/ProductSans-Light.ttf": "/static/media/ProductSans-Light.1dde435cdc2a9b6a7130.ttf",
     "static/media/ProductSans-Bold.ttf": "/static/media/ProductSans-Bold.153c4f86d79ce54c810c.ttf",
     "index.html": "/index.html",
-    "main.d7f320e3.css.map": "/static/css/main.d7f320e3.css.map",
-    "main.d7eb3365.js.map": "/static/js/main.d7eb3365.js.map"
+    "main.8056a1bb.css.map": "/static/css/main.8056a1bb.css.map",
+    "main.81bb4652.js.map": "/static/js/main.81bb4652.js.map"
   },
   "entrypoints": [
-    "static/css/main.d7f320e3.css",
-    "static/js/main.d7eb3365.js"
+    "static/css/main.8056a1bb.css",
+    "static/js/main.81bb4652.js"
   ]
 }

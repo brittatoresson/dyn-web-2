@@ -14,7 +14,6 @@ function Game() {
     const response = await fetch(
       "https://dyn-web-2-8tqt.onrender.com/top20/random"
     );
-    // const response = await fetch("http://localhost:2000/top20/random");
     const data = await response.json();
     setPlayers(data);
   }
@@ -27,7 +26,6 @@ function Game() {
     const response = await fetch(
       "https://dyn-web-2-8tqt.onrender.com/matches",
       {
-        // const response = await fetch("http://localhost:2000/matches", {
         method: "POST",
         body: JSON.stringify({ winner: winner, loser: loser }),
         headers: { "Content-Type": "application/json" },
@@ -41,7 +39,6 @@ function Game() {
     const response = await fetch(
       "https://dyn-web-2-8tqt.onrender.com/matches",
       {
-        // const response = await fetch("http://localhost:2000/matches", {
         method: "PUT",
         body: JSON.stringify({ winner: winner?._id, loser: loser?._id }),
         headers: { "Content-Type": "application/json" },

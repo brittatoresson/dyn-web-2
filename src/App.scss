@@ -150,7 +150,7 @@ nav {
 .spotifyPlayer {
   .PlayerRSWP {
     height: 1rem;
-    width: 30vw;
+    width: 25vw;
   }
   background-color: black;
   .rswp__toggle,
@@ -164,7 +164,12 @@ nav {
   }
   .rswp__toggle {
     position: relative;
-    left: -22vw;
+    left: -18vw;
+  }
+  ._VolumeRSWP {
+    div {
+      transform: scale(1.1);
+    }
   }
 }
 
@@ -183,10 +188,10 @@ nav {
 }
 .galleryPost {
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
+  grid-template-columns: repeat(13, 1fr);
   grid-template-areas:
-    " delete img img title title title album album  sum  navdot infoContainer infoContainer"
-    " delete img img artist artist artist album album sum  navdot infoContainer infoContainer";
+    " delete img img title title title album album sum  navdot infoContainer infoContainer infoContainer"
+    " delete img img artist artist artist album album sum  navdot infoContainer infoContainer infoContainer";
   background-color: black;
   img {
     grid-area: img;
@@ -242,6 +247,7 @@ nav {
   height: 9vh;
   ul {
     padding: 0;
+    padding-right: 1rem;
   }
 }
 

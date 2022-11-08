@@ -12,7 +12,6 @@ function Gallery() {
 
   async function getAllItemsFromTop20() {
     const response = await fetch("https://dyn-web-2-8tqt.onrender.com/top20");
-    // const response = await fetch("http://localhost:2000/top20");
     setAllItem(await response.json());
   }
 
@@ -20,7 +19,6 @@ function Gallery() {
     const response = await fetch(
       `https://dyn-web-2-8tqt.onrender.com/top20/${item._id}`,
       {
-        // const response = await fetch(`http://localhost:2000/top20/${item._id}`, {
         method: "DELETE",
         headers: { "Content-Type": "application/json" },
       }
@@ -32,13 +30,9 @@ function Gallery() {
     const response = await fetch(
       `https://dyn-web-2-8tqt.onrender.com/matchWinners/${item}`
     );
-    // const response = await fetch(`http://localhost:2000/matchWinners/${item}`);
     setDefeats(await response.json());
     setId(item);
   }
-  useEffect(() => {
-    getAllItemsFromTop20();
-  }, [toggleInputField]);
 
   function getPopularity() {
     let totalGames: any[] = [];
@@ -54,6 +48,10 @@ function Gallery() {
   useEffect(() => {
     getPopularity();
   }, [allItem]);
+
+  useEffect(() => {
+    getAllItemsFromTop20();
+  }, [toggleInputField]);
 
   return (
     <section className="gallery">
@@ -82,7 +80,7 @@ function Gallery() {
             <img src={item.img}></img>
             {item.wins > 0 ? (
               <li className="sum">
-                {Math.round((sum / 100) * item.wins * 1000) / 10} %{" "}
+                {Math.round((sum / 100) * item.wins * 10)} %{" "}
               </li>
             ) : (
               <li className="sum">0 %</li>
