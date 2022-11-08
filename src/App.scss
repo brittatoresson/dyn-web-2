@@ -178,8 +178,8 @@ nav {
 .galleryHeaders {
   margin: 0;
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-template-areas: " .  . . name name name  albums albums popularity popularity . . ";
+  grid-template-columns: repeat(13, 1fr);
+  grid-template-areas: " .  . . name name name  albums albums  popularity popularit . . . ";
 }
 .galleryPosts {
   background-color: var(--dark-bg-color);
