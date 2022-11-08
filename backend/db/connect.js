@@ -1,10 +1,8 @@
 const { MongoClient } = require("mongodb");
 require("dotenv").config({ path: "./config.env" });
-const Db = "mongodb+srv://Britta:britta@cluster0.jy6hhtd.mongodb.net/test";
+// const Db = "mongodb+srv://Britta:britta@cluster0.jy6hhtd.mongodb.net/test";
 
-// const db =
-//   process.env.ATLAS_URI ||
-//   "mongodb+srv://Britta:britta@cluster0.jy6hhtd.mongodb.net/test";
+const Db = process.env.ATLAS_URI;
 
 const client = new MongoClient(Db, {
   useNewUrlParser: true,

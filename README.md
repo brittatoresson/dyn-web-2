@@ -8,5 +8,7 @@ Visa topp 5 vinnare och förlorare - Ja
 Visa resultatet från alla matcher - Ja
 
 LEVLE UPS
-Klicka på en hamster i galleriet, för att se vilka andra hamstrar den har besegrat i tidigare matcher - Ja
-Fighters and slackers - Ja
+Klicka på en hamster i galleriet, för att se vilka andra hamstrar den har besegrat i tidigare matcher - Ja, ses i gallery
+Fighters and slackers - Ja, finns i statistics
+
+Se populärast låt - ses i gallery
