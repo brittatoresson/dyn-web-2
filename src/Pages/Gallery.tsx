@@ -8,7 +8,7 @@ function Gallery() {
   const [toggleInputField, setToggleInputField] = useState<boolean>();
   const [defeats, setDefeats] = useState<IArtistArray>([]);
   const [id, setId] = useState<string | undefined>("");
-  const [sum, setSum] = useState(0);
+  const [sum, setSum] = useState<number>();
 
   async function getAllItemsFromTop20() {
     const response = await fetch("https://dyn-web-2-8tqt.onrender.com/top20");
@@ -38,9 +38,10 @@ function Gallery() {
     let totalGames: any[] = [];
     allItem.map((item) => {
       totalGames.push(item.games);
-      var sum = totalGames.reduce(function (a, b) {
+      let sum = totalGames.reduce(function (a, b) {
         return parseInt(a) + parseInt(b);
       }, 0);
+      sum = sum / 2;
       setSum(sum);
     });
   }
@@ -78,7 +79,7 @@ function Gallery() {
               ✖️
             </li>
             <img src={item.img}></img>
-            {item.wins > 0 ? (
+            {sum ? (
               <li className="sum">{Math.round((item.wins / sum) * 100)} % </li>
             ) : (
               <li className="sum">0 %</li>
