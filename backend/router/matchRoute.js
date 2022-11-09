@@ -195,11 +195,13 @@ routes.route("/fewMatches").get(async function (req, response) {
 // routes.route("/updatematches").put(function (req, res) {
 //   let winner_id = req.body.winner;
 //   let loser_id = req.body.loser;
+//   console.log(req.body);
 //   console.log("hej");
 //   dB.getDb("top20")
 //     .collection("top20")
 //     // .updateMany({}, { $set: { album: "sampleText" } });
 //     .updateMany({}, { $set: { wins: 0, games: 0, defeats: 0 } });
+//   dB.getDb("matchDb").collection("matchDb").remove({});
 //   res.json(200);
 // });
 
