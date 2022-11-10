@@ -1,17 +1,18 @@
-THIS OR THAT?
+<h4> This or that </h4>
 Välj din favoritlåt från Spotifys top 20 lista!
 
-TOKEN TILL SPOTIFY
+<h4>Token till Spotify</h4>
 För att kunna addera nya låtar till databasen och spela upp ljud behövs en token som hämtas via länken på denna sida : //https://react-spotify-web-playback.gilbarbara.dev/ . OBS behöver vara ett premiumkonto för att får access för att splea upp musiken.
 Lägg in din token i assets/config.js -filen
 
-VG-UPPGIFTER
+<h4>VG-uppgifter </h4>
 Se defeats - Ja
 Visa topp 5 vinnare och förlorare - Ja
 Visa resultatet från alla matcher - Ja
 
-LEVLE UPS
+<h4>Level Ups</h4>
 Klicka på en hamster i galleriet, för att se vilka andra hamstrar den har besegrat i tidigare matcher - Ja, ses i gallery
 Fighters and slackers - Ja, finns i statistics
 
-Se populärast låt - ses i gallery
+<h4>Se populärast låt</h4> 
+ses i gallery
