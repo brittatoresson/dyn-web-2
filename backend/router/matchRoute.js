@@ -103,26 +103,25 @@ routes.route("/matches/:id").delete(function (req, res) {
   let loserObj = req.body.item.loser;
   let winner_id = req.body.item.winner._id;
   let loser_id = req.body.item.loser._id;
-
   dB.getDb("matchDb")
     .collection("matchDb")
     .deleteOne({ _id: ObjectId(_id) }, function (err, result) {});
-  if (winnerObj.defeats && winnerObj.wins > 1) {
-    dB.getDb("top20")
-      .collection("top20")
-      .updateOne(
-        { _id: ObjectId(winner_id) },
-        { $inc: { defeats: -1, games: -1, wins: -1 } }
-      );
-  }
-  if (loserObj.defeats && loserObj.wins > 1) {
-    dB.getDb("top20")
-      .collection("top20")
-      .updateOne(
-        { _id: ObjectId(loser_id) },
-        { $inc: { defeats: -1, games: -1, wins: -1 } }
-      );
-  }
+  // if (winnerObj.defeats && winnerObj.wins > 1) {
+  dB.getDb("top20")
+    .collection("top20")
+    .updateOne(
+      { _id: ObjectId(winner_id) },
+      { $inc: { defeats: -1, games: -1, wins: -1 } }
+    );
+  // }
+  // if (loserObj.defeats && loserObj.wins > 1) {
+  dB.getDb("top20")
+    .collection("top20")
+    .updateOne(
+      { _id: ObjectId(loser_id) },
+      { $inc: { defeats: -1, games: -1, wins: -1 } }
+    );
+  // }
   res.json(200);
 });
 
