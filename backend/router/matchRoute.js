@@ -16,7 +16,6 @@ routes.route("/matches").get(function (req, res) {
 //GET match from ID
 routes.route("/matches/:id").get(function (req, res) {
   let _id = req.params.id;
-  console.log(_id);
   dB.getDb("matchDb")
     .collection("matchDb")
     .findOne({ _id: ObjectId(_id) }, function (err, result) {
@@ -100,9 +99,8 @@ routes.route("/matches").put(function (req, res) {
 //DELETE match from ID
 routes.route("/matches/:id").delete(function (req, res) {
   let _id = req.params.id;
-  let winnerObj = req.params.winner;
-  let loserObj = req.params.loser;
-  console.log(object);
+  let winnerObj = req.body.item.winner;
+  let loserObj = req.body.item.loser;
   let winner_id = req.body.item.winner._id;
   let loser_id = req.body.item.loser._id;
 
@@ -116,18 +114,14 @@ routes.route("/matches/:id").delete(function (req, res) {
         { _id: ObjectId(winner_id) },
         { $inc: { defeats: -1, games: -1, wins: -1 } }
       );
-  } else {
-    res.json(404);
   }
-  if (loserObj.defeats && winnerObj.wins > 1) {
+  if (loserObj.defeats && loserObj.wins > 1) {
     dB.getDb("top20")
       .collection("top20")
       .updateOne(
         { _id: ObjectId(loser_id) },
         { $inc: { defeats: -1, games: -1, wins: -1 } }
       );
-  } else {
-    res.json(404);
   }
   res.json(200);
 });
@@ -195,8 +189,6 @@ routes.route("/fewMatches").get(async function (req, response) {
 // routes.route("/updatematches").put(function (req, res) {
 //   let winner_id = req.body.winner;
 //   let loser_id = req.body.loser;
-//   console.log(req.body);
-//   console.log("hej");
 //   dB.getDb("top20")
 //     .collection("top20")
 //     // .updateMany({}, { $set: { album: "sampleText" } });
